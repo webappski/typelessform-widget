@@ -61,11 +61,15 @@
     "voice-first-ux",
     "form-abandonment"
   ],
-  "author": "WebAppski <info@webappski.com>",
+  "author": "WebAppski <info@webappski.com> (https://webappski.com)",
   "license": "MIT",
   "homepage": "https://typelessform.com",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DVdmitry/typelessform-widget.git"
+  },
   "bugs": {
-    "url": "https://github.com/DVdmitry/typelessform-issues/issues"
+    "url": "https://github.com/DVdmitry/typelessform-widget/issues"
   },
   "engines": {
     "node": ">=18"
