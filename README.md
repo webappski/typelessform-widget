@@ -433,7 +433,7 @@ Get started with the free Pilot plan at the [developer dashboard](https://webapp
 
 ## Support
 
-Found a bug or have a feature request? [Open an issue on GitHub](https://github.com/DVdmitry/typelessform-issues/issues).
+Found a bug or have a feature request? [Open an issue on GitHub](https://github.com/webappski/typelessform-issues/issues).
 
 ## License
 

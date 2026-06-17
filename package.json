@@ -66,10 +66,10 @@
   "homepage": "https://typelessform.com",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/DVdmitry/typelessform-widget.git"
+    "url": "git+https://github.com/webappski/typelessform-widget.git"
   },
   "bugs": {
-    "url": "https://github.com/DVdmitry/typelessform-widget/issues"
+    "url": "https://github.com/webappski/typelessform-widget/issues"
   },
   "engines": {
     "node": ">=18"
