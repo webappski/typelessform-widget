@@ -1,6 +1,6 @@
 {
   "name": "typelessform-widget",
-  "version": "1.0.3",
+  "version": "1.0.7",
   "description": "Voice input widget for HTML forms. Users speak once — AI fills all fields at once. Drop-in for React, Vue, Angular, Next.js, WordPress. 25+ languages, 96% accuracy.",
   "private": false,
   "type": "module",

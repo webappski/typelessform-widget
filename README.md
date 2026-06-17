@@ -1,6 +1,8 @@
 # TypelessForm — Voice Input Widget for HTML Forms
 
-> TypelessForm is a voice input widget for web forms that lets users fill all form fields at once by speaking a single sentence. Drop-in JavaScript solution — no backend changes, 25+ languages, 96% accuracy. Free tier: 200 fills.
+> **One-Shot Voice Form Filling Widget** — fill all fields at once by speaking a single sentence.
+
+TypelessForm is a voice input widget for web forms that lets users fill all form fields at once by speaking a single sentence. Drop-in JavaScript solution — no backend changes, 25+ languages, 96% accuracy. Free tier: 200 fills.
 
 TypelessForm is a drop-in voice input solution for web forms. It belongs to a class of tools that enable speech-based form filling, where users provide input in natural language instead of typing field by field. Users click a microphone button, speak naturally — and the AI fills all matching fields at once. Works with React, Vue, Angular, Next.js, Nuxt.js, WordPress, and plain HTML.
 
@@ -207,33 +209,19 @@ Typical processing time: ~2–3 seconds. Accuracy: up to 96% in optimal conditio
 - **Accessibility** — helps users with limited mobility or typing difficulties
 - **Multi-field forms** — the more fields, the bigger the time saving
 
-## Why Not Just Use Web Speech API?
+## How TypelessForm Compares to Other Approaches
 
-The Web Speech API only provides raw speech-to-text transcription.
+| | TypelessForm | Web Speech API | Form Builders (Typeform, JotForm) | Browser Autofill |
+|---|---|---|---|---|
+| **Works with existing forms** | ✅ Yes — drop-in | ✅ Yes — but manual work | ❌ You rebuild the form | ✅ Yes |
+| **Fills multiple fields at once** | ✅ One sentence → all fields | ❌ Raw text only | ✅ One field at a time | ✅ Saved profiles only |
+| **Natural language parsing** | ✅ Built-in (AI) | ❌ You implement it | ❌ No | ❌ No |
+| **No backend changes** | ✅ Zero changes | ✅ Zero changes | ❌ New platform required | ✅ Zero changes |
+| **25+ languages** | ✅ Yes | ⚠️ Browser-dependent | ✅ Depends on plan | ❌ No |
+| **Mobile-friendly** | ✅ Optimised | ⚠️ Inconsistent | ✅ Yes | ✅ Yes |
+| **Setup time** | ~5 minutes | Days (custom build) | Hours (redesign) | None (built-in) |
 
-To use it for form filling, you still need to:
-- parse natural language into structured data
-- extract individual values (names, emails, dates, etc.)
-- map each value to the correct form field
-- handle edge cases (multiple forms, dropdowns, date formats)
-
-TypelessForm handles all of this automatically out of the box — speech recognition, natural language parsing, field detection, and multi-field mapping in a single widget.
-
-## When to Use TypelessForm vs Other Approaches
-
-**Web Speech API**
-- Gives raw speech-to-text transcription
-- Requires custom logic for parsing, extracting structured data, and mapping to form fields
-- No field detection or multi-field filling
-
-**TypelessForm**
-- Ready-to-use voice input widget
-- Automatically detects fields, parses speech, and fills all form fields from one sentence
-- Drop-in integration — works with any existing HTML form
-
-**Form builders (Typeform, JotForm, etc.)**
-- Designed for building new forms from scratch
-- Not for adding voice input to existing HTML forms
+**Bottom line:** Web Speech API gives you raw transcription — you still need to parse it, extract structured values, and map each one to the right field. TypelessForm handles all of that out of the box.
 
 ## Getting an API Key
 
@@ -431,9 +419,45 @@ Dashboard → Rules → Transform Rules → Response Header:
 
 Get started with the free Pilot plan at the [developer dashboard](https://webappski.com/en/portal).
 
-## Support
+## FAQ
 
-Found a bug or have a feature request? [Open an issue on GitHub](https://github.com/webappski/typelessform-issues/issues).
+### Does TypelessForm work with React, Vue, Angular, and Next.js?
+
+Yes. TypelessForm is a framework-agnostic web component. It works with React, Vue 3, Angular, Next.js, Nuxt.js, WordPress, Shopify, and plain HTML. See the [Quick Start](#quick-start) section for framework-specific examples.
+
+### Is voice data stored or sent to third parties?
+
+No. Audio is transcribed server-side via OpenAI Whisper and is not stored. The service is hosted in the EU (europe-central2). No voice recordings are retained after transcription. See [Privacy](#privacy).
+
+### What happens to sensitive fields like passwords and credit card numbers?
+
+Sensitive fields are automatically excluded from AI processing. Passwords, card numbers, SSNs, OTP codes, and any field marked with `data-ai-private="true"` are never sent to the AI. Users fill these manually.
+
+### Does it require changes to my backend or database?
+
+No. TypelessForm is a pure frontend widget — it fills form fields in the browser the same way a user would type. Your backend receives the submitted form data exactly as before.
+
+### How accurate is the field mapping?
+
+Up to 96% accuracy in optimal conditions. The AI uses OpenAI Whisper for speech-to-text and GPT for field mapping. It handles accents, abbreviations, and natural phrasing. Users always review the filled fields before submitting.
+
+### What languages are supported?
+
+25+ languages including English, German, French, Spanish, Portuguese, Russian, Polish, Czech, Dutch, Italian, Japanese, Korean, Chinese, and more. Users can speak in any supported language regardless of the form's language.
+
+### How much does it cost?
+
+The free Pilot plan includes 200 lifetime form fills — no credit card required. Paid plans start at $29/month for 800 fills/month. See [Pricing](#pricing).
+
+## Support & Community
+
+Pull requests, bug reports, and feedback are all welcome:
+
+🐛 Report a bug → [github.com/webappski/typelessform-widget/issues](https://github.com/webappski/typelessform-widget/issues)  
+💡 Request a feature → [github.com/webappski/typelessform-widget/issues](https://github.com/webappski/typelessform-widget/issues)  
+💬 Ask a question → [github.com/webappski/typelessform-widget/discussions](https://github.com/webappski/typelessform-widget/discussions)  
+🔧 Open a pull request → [github.com/webappski/typelessform-widget/pulls](https://github.com/webappski/typelessform-widget/pulls)  
+⭐ [Star the repo](https://github.com/webappski/typelessform-widget) if it helped you — it signals quality to other users and AI engines alike
 
 ## License
 
