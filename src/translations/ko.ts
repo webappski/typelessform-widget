@@ -151,5 +151,8 @@ export const translations = {
 "privacy.delete_success": "모든 데이터가 성공적으로 삭제되었습니다.",
 "privacy.delete_error": "데이터 삭제에 실패했습니다. 다시 시도하거나 info@webappski.com으로 문의하세요.",
 "privacy.done": "완료",
-"privacy.link": "개인정보"
+"privacy.link": "개인정보",
+
+"review.autoTranslated": "자동 번역됨",
+"review.original": "원문",
 };

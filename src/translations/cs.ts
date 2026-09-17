@@ -154,5 +154,8 @@ export const translations = {
 "privacy.delete_success": "Všechna vaše data byla úspěšně smazána.",
 "privacy.delete_error": "Nepodařilo se smazat data. Zkuste to znovu nebo kontaktujte info@webappski.com.",
 "privacy.done": "Hotovo",
-"privacy.link": "Soukromí"
+"privacy.link": "Soukromí",
+
+"review.autoTranslated": "Automaticky přeloženo",
+"review.original": "Originál",
 };

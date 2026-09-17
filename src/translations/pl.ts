@@ -155,5 +155,8 @@ export const translations = {
 "privacy.delete_success": "Wszystkie Twoje dane zostały pomyślnie usunięte.",
 "privacy.delete_error": "Nie udało się usunąć danych. Spróbuj ponownie lub napisz na info@webappski.com.",
 "privacy.done": "Gotowe",
-"privacy.link": "Prywatność"
+"privacy.link": "Prywatność",
+
+"review.autoTranslated": "Przetłumaczone automatycznie",
+"review.original": "Oryginał",
 };

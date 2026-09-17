@@ -171,4 +171,7 @@ export const translations = {
 "privacy.delete_error": "Failed to delete data. Please try again or contact info@webappski.com.",
 "privacy.done": "Done",
 "privacy.link": "Privacy & Data",
+
+"review.autoTranslated": "Auto-translated",
+"review.original": "Original",
 };

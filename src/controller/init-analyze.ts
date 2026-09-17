@@ -4,6 +4,7 @@
  */
 
 import { CONFIG } from '../constants/config.ts';
+import { WIDGET_VERSION } from '../constants/version.ts';
 import { ViewState } from '../types';
 import { getFormTitle } from '../lib/field-keys.ts';
 import type { FieldDescriptor } from '../form-scanner/index.js';
@@ -151,7 +152,7 @@ export function buildInitPayloadImpl(component: TypelessFormHost, fields: FieldD
     pageUrl: window.location.origin, formId, formTitle: domTitle,
     userUiLang: component.currentLang,
     fields: fields.map(mapFieldToPayload),
-    widgetVersion: '1.0.0',
+    widgetVersion: WIDGET_VERSION,
   };
   if (component.apiKey) {payload.apiKey = component.apiKey;}
   return payload;

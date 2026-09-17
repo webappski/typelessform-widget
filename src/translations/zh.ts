@@ -146,5 +146,8 @@ export const translations = {
 "privacy.delete_success": "您的所有数据已成功删除。",
 "privacy.delete_error": "删除数据失败。请重试或联系 info@webappski.com。",
 "privacy.done": "完成",
-"privacy.link": "隐私"
+"privacy.link": "隐私",
+
+"review.autoTranslated": "自动翻译",
+"review.original": "原文",
 };

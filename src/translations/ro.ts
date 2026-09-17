@@ -156,5 +156,8 @@ export const translations = {
 "privacy.delete_success": "Toate datele dvs. au fost șterse cu succes.",
 "privacy.delete_error": "Nu s-au putut șterge datele. Încercați din nou sau contactați info@webappski.com.",
 "privacy.done": "Gata",
-"privacy.link": "Confidențialitate"
+"privacy.link": "Confidențialitate",
+
+"review.autoTranslated": "Tradus automat",
+"review.original": "Original",
 };

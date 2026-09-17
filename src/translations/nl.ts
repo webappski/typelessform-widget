@@ -153,5 +153,8 @@ export const translations = {
 "privacy.delete_success": "Al uw gegevens zijn succesvol verwijderd.",
 "privacy.delete_error": "Gegevens konden niet worden verwijderd. Probeer opnieuw of neem contact op via info@webappski.com.",
 "privacy.done": "Klaar",
-"privacy.link": "Privacy"
+"privacy.link": "Privacy",
+
+"review.autoTranslated": "Automatisch vertaald",
+"review.original": "Origineel",
 };

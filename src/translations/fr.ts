@@ -164,5 +164,8 @@ export const translations = {
 "privacy.delete_success": "Toutes vos données ont été supprimées avec succès.",
 "privacy.delete_error": "Échec de la suppression des données. Veuillez réessayer ou contacter info@webappski.com.",
 "privacy.done": "Terminé",
-"privacy.link": "Confidentialité"
+"privacy.link": "Confidentialité",
+
+"review.autoTranslated": "Traduit automatiquement",
+"review.original": "Original",
 };

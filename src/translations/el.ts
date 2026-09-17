@@ -156,5 +156,8 @@ export const translations = {
 "privacy.delete_success": "Όλα τα δεδομένα σας διαγράφηκαν επιτυχώς.",
 "privacy.delete_error": "Αποτυχία διαγραφής δεδομένων. Δοκιμάστε ξανά ή επικοινωνήστε στο info@webappski.com.",
 "privacy.done": "Έτοιμο",
-"privacy.link": "Απόρρητο"
+"privacy.link": "Απόρρητο",
+
+"review.autoTranslated": "Αυτόματη μετάφραση",
+"review.original": "Πρωτότυπο",
 };

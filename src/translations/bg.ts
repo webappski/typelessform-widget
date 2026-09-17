@@ -158,5 +158,8 @@ export const translations = {
 "privacy.delete_success": "Всички ваши данни бяха успешно изтрити.",
 "privacy.delete_error": "Неуспешно изтриване на данните. Опитайте отново или пишете на info@webappski.com.",
 "privacy.done": "Готово",
-"privacy.link": "Поверителност"
+"privacy.link": "Поверителност",
+
+"review.autoTranslated": "Автоматично преведено",
+"review.original": "Оригинал",
 };

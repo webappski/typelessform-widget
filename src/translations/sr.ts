@@ -153,5 +153,8 @@ export const translations = {
 "privacy.delete_success": "Сви ваши подаци су успешно обрисани.",
 "privacy.delete_error": "Није могуће обрисати податке. Покушајте поново или контактирајте info@webappski.com.",
 "privacy.done": "Готово",
-"privacy.link": "Приватност"
+"privacy.link": "Приватност",
+
+"review.autoTranslated": "Аутоматски преведено",
+"review.original": "Оригинал",
 };

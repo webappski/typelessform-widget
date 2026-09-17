@@ -151,5 +151,8 @@ export const translations = {
 "privacy.delete_success": "Kaikki tietosi on poistettu onnistuneesti.",
 "privacy.delete_error": "Tietojen poistaminen epäonnistui. Yritä uudelleen tai ota yhteyttä info@webappski.com.",
 "privacy.done": "Valmis",
-"privacy.link": "Tietosuoja"
+"privacy.link": "Tietosuoja",
+
+"review.autoTranslated": "Käännetty automaattisesti",
+"review.original": "Alkuperäinen",
 };

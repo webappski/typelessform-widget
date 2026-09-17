@@ -155,5 +155,8 @@ export const translations = {
 "privacy.delete_success": "Svi vaši podaci uspješno su izbrisani.",
 "privacy.delete_error": "Nije moguće izbrisati podatke. Pokušajte ponovo ili kontaktirajte info@webappski.com.",
 "privacy.done": "Gotovo",
-"privacy.link": "Privatnost"
+"privacy.link": "Privatnost",
+
+"review.autoTranslated": "Automatski prevedeno",
+"review.original": "Izvornik",
 };

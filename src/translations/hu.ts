@@ -155,5 +155,8 @@ export const translations = {
 "privacy.delete_success": "Minden adata sikeresen törölve.",
 "privacy.delete_error": "Az adatok törlése sikertelen. Próbálja újra vagy írjon az info@webappski.com címre.",
 "privacy.done": "Kész",
-"privacy.link": "Adatvédelem"
+"privacy.link": "Adatvédelem",
+
+"review.autoTranslated": "Automatikusan fordítva",
+"review.original": "Eredeti",
 };

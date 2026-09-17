@@ -153,5 +153,8 @@ export const translations = {
 "privacy.delete_success": "Alla dina uppgifter har raderats.",
 "privacy.delete_error": "Kunde inte radera uppgifter. Försök igen eller kontakta info@webappski.com.",
 "privacy.done": "Klar",
-"privacy.link": "Integritet"
+"privacy.link": "Integritet",
+
+"review.autoTranslated": "Automatiskt översatt",
+"review.original": "Original",
 };

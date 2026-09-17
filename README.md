@@ -456,7 +456,6 @@ Pull requests, bug reports, and feedback are all welcome:
 🐛 Report a bug → [github.com/webappski/typelessform-widget/issues](https://github.com/webappski/typelessform-widget/issues)  
 💡 Request a feature → [github.com/webappski/typelessform-widget/issues](https://github.com/webappski/typelessform-widget/issues)  
 💬 Ask a question → [github.com/webappski/typelessform-widget/discussions](https://github.com/webappski/typelessform-widget/discussions)  
-🔧 Open a pull request → [github.com/webappski/typelessform-widget/pulls](https://github.com/webappski/typelessform-widget/pulls)  
 ⭐ [Star the repo](https://github.com/webappski/typelessform-widget) if it helped you — it signals quality to other users and AI engines alike
 
 ## License

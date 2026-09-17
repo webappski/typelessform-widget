@@ -152,5 +152,8 @@ export const translations = {
 "privacy.delete_success": "Alle dine data er blevet slettet.",
 "privacy.delete_error": "Kunne ikke slette data. Prøv igen eller kontakt info@webappski.com.",
 "privacy.done": "Færdig",
-"privacy.link": "Privatliv"
+"privacy.link": "Privatliv",
+
+"review.autoTranslated": "Automatisk oversat",
+"review.original": "Original",
 };

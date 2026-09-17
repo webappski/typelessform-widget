@@ -1,6 +1,6 @@
 {
   "name": "typelessform-widget",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Voice input widget for HTML forms. Users speak once — AI fills all fields at once. Drop-in for React, Vue, Angular, Next.js, WordPress. 25+ languages, 96% accuracy.",
   "private": false,
   "type": "module",
@@ -93,7 +93,8 @@
     "test:style:observe": "cd tests/e2e && E2E_PAGES_BASE='/widget/tests/pages/' && HEADLESS=false SLOWMO_MS=250 STYLE_LOG=1 TEST_NAME_PATTERN=StyleContracts node run-e2e.cjs",
     "test:style:update": "cd tests/e2e && E2E_PAGES_BASE='/widget/tests/pages/' && STYLE_UPDATE_BASELINES=1 TEST_NAME_PATTERN=StyleContracts node run-e2e.cjs",
     "test:style:update:strict": "cd tests/e2e && E2E_PAGES_BASE='/widget/tests/pages/' && STYLE_UPDATE_BASELINES=1 STYLE_CONTRACTS_STRICT=1 TEST_NAME_PATTERN=StyleContracts node run-e2e.cjs",
-    "test:lang": "HEADLESS=1 node tests/e2e/run-single-language.cjs"
+    "test:lang": "HEADLESS=1 node tests/e2e/run-single-language.cjs",
+    "test:i18n": "node --test tests/*.test.mjs"
   },
   "dependencies": {
     "lit": "^3.3.0",

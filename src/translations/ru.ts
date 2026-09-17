@@ -181,5 +181,8 @@ export const translations = {
 "privacy.delete_success": "Все ваши данные успешно удалены.",
 "privacy.delete_error": "Не удалось удалить данные. Попробуйте снова или напишите на info@webappski.com.",
 "privacy.done": "Готово",
-"privacy.link": "Конфиденциальность"
+"privacy.link": "Конфиденциальность",
+
+"review.autoTranslated": "Переведено автоматически",
+"review.original": "Оригинал",
 };

@@ -153,5 +153,8 @@ export const translations = {
 "privacy.delete_success": "すべてのデータが正常に削除されました。",
 "privacy.delete_error": "データの削除に失敗しました。再試行するか、info@webappski.comにご連絡ください。",
 "privacy.done": "完了",
-"privacy.link": "プライバシー"
+"privacy.link": "プライバシー",
+
+"review.autoTranslated": "自動翻訳",
+"review.original": "原文",
 };

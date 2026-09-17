@@ -101,7 +101,7 @@ function renderFieldStacked(ctx: TranslationContext, field: FieldStatusEntry, do
               <span class="field-long-target">${displayValue}</span>
               <span class="field-translation-toggle">
                 ${globeSvg(12)}
-                <span>Auto-translated</span>
+                <span>${ctx.t('review.autoTranslated')}</span>
                 <svg class="field-translation-chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
               </span>
             </summary>
@@ -109,7 +109,7 @@ function renderFieldStacked(ctx: TranslationContext, field: FieldStatusEntry, do
               <div class="field-long-divider">
                 <span class="field-long-divider-label">
                   ${globeSvg(10)}
-                  Original
+                  ${ctx.t('review.original')}
                 </span>
               </div>
               <div class="field-long-source">${stripLabelPrefix(originalText, field.label)}</div>
