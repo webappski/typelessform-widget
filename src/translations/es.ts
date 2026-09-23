@@ -98,7 +98,7 @@ export const translations = {
 "consent.full_details_title": "Leer Detalles Completos",
 "consent.section1_title": "¿Qué datos procesamos?",
 "consent.data1":
-  "Grabación de voz. Archivo de audio enviado a OpenAI Whisper a través de nuestro servidor para transcripción. El archivo no se guarda en el servidor después del procesamiento.",
+  "Grabación de voz. Archivo de audio enviado a OpenAI a través de nuestro servidor para transcripción. El archivo no se guarda en el servidor después del procesamiento.",
 "consent.data2":
   "Transcripción de voz (texto). Enviada a OpenAI GPT para completar formularios. Por defecto, no guardamos la transcripción en nuestros sistemas; en los registros técnicos almacenamos solo metadatos (longitud del texto, idioma, duración). Importante: OpenAI puede almacenar datos de solicitud hasta 30 días para prevenir abusos; la eliminación anticipada en OpenAI no está disponible; los datos no se utilizan para entrenar modelos.",
 "consent.data3":
@@ -109,6 +109,8 @@ export const translations = {
   "User-Agent del navegador. Utilizado localmente y por nuestra infraestructura (compatibilidad/seguridad), NO enviado a OpenAI.",
 "consent.data6":
   "Dirección IP. Registrada por la infraestructura de Google Cloud/Firebase para seguridad (hasta 30 días), NO enviada a OpenAI.",
+"consent.retention":
+  "Cuánto tiempo conservamos el registro de su consentimiento. El registro de este consentimiento se conserva durante {months} meses desde su consentimiento más reciente y después se elimina automáticamente. Si retira el consentimiento, se elimina antes.",
 "consent.section2_title":
   "¿A dónde y sobre qué base legal se transfieren los datos?",
 "consent.recipients":
@@ -121,7 +123,7 @@ export const translations = {
   "Registros técnicos (IP/UA/URL) — intereses legítimos (Art. 6(1)(f)) — seguridad y depuración.",
 "consent.section3_title": "Sus derechos",
 "consent.rights1":
-  "Puede retirar el consentimiento en la configuración del widget en cualquier momento; esto no afecta la legalidad del procesamiento antes de la retirada.",
+  "Puede retirar su consentimiento en cualquier momento en el panel «Privacidad y datos» del widget; esa misma acción también elimina sus registros de consentimiento de nuestros servidores. Esto no afecta a la licitud del tratamiento previo a la retirada.",
 "consent.rights2":
   "Además de retirar el consentimiento, tiene derecho a solicitar acceso o eliminación de sus datos almacenados en nuestros sistemas (registros técnicos, métricas de costos) a través del propietario del sitio web. Detalles completos en la <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Política de Privacidad</a>.",
 "consent.rights3":
@@ -149,10 +151,10 @@ export const translations = {
 "privacy.policy_version": "Versión de la política",
 "privacy.usage_count": "Número de usos",
 "privacy.no_data": "No se encontraron datos de consentimiento en este dispositivo.",
-"privacy.delete_title": "Eliminar mis datos",
+"privacy.delete_title": "Retirar el consentimiento y eliminar mis datos",
 "privacy.delete_description": "Esto eliminará permanentemente todos sus registros de consentimiento de nuestros servidores y borrará los datos locales. Esta acción no se puede deshacer.",
 "privacy.delete_confirm": "Entiendo que esto es permanente",
-"privacy.delete_button": "Eliminar mis datos",
+"privacy.delete_button": "Retirar el consentimiento y eliminar mis datos",
 "privacy.deleting": "Eliminando...",
 "privacy.delete_success": "Todos sus datos han sido eliminados exitosamente.",
 "privacy.delete_error": "No se pudieron eliminar los datos. Inténtelo de nuevo o contacte a info@webappski.com.",

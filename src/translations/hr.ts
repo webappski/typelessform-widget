@@ -96,7 +96,7 @@ export const translations = {
 "consent.full_details_title": "Pročitajte Potpune Detalje",
 "consent.section1_title": "Koje podatke obrađujemo?",
 "consent.data1":
-  "Glasovni snimak. Audio datoteka poslana OpenAI Whisperu putem našeg servera za transkripciju. Datoteka se ne sprema na server nakon obrade.",
+  "Glasovni snimak. Audio datoteka poslana OpenAI-ju putem našeg servera za transkripciju. Datoteka se ne sprema na server nakon obrade.",
 "consent.data2":
   "Glasovna transkripcija (tekst). Poslano OpenAI GPT-u za popunjavanje obrazaca. Prema zadanim postavkama ne spremamo transkripciju u naše sustave; u tehničkim zapisima pohranjujemo samo metapodatke (duljina teksta, jezik, trajanje). Važno: OpenAI može pohraniti podatke zahtjeva do 30 dana kako bi spriječio zlouporabu; rano brisanje u OpenAI-u nije dostupno; podaci se ne koriste za obuku modela.",
 "consent.data3":
@@ -107,6 +107,8 @@ export const translations = {
   "User-Agent preglednika. Koristi se lokalno i našom infrastrukturom (kompatibilnost/sigurnost), NIJE poslan OpenAI-u.",
 "consent.data6":
   "IP adresa. Zabilježena infrastrukturom Google Cloud/Firebase radi sigurnosti (do 30 dana), NIJE poslana OpenAI-u.",
+"consent.retention":
+  "Koliko dugo čuvamo zapis o vašem pristanku. Zapis o ovom pristanku čuva se {months} mjeseci od vašeg posljednjeg pristanka, a zatim se automatski briše. Povlačenjem pristanka briše se ranije.",
 "consent.section2_title":
   "Gdje i na kojoj pravnoj osnovi se prenose podaci?",
 "consent.recipients":
@@ -120,7 +122,7 @@ export const translations = {
   "Tehnički zapisi (IP/UA/URL) — legitimni interesi (čl. 6. st. 1. toč. f)) — sigurnost i otklanjanje grešaka.",
 "consent.section3_title": "Vaša prava",
 "consent.rights1":
-  "Pristanak možete povući u postavkama widgeta bilo kada; to ne utječe na zakonitost obrade prije povlačenja.",
+  "Pristanak možete povući u bilo kojem trenutku u ploči „Privatnost i podaci“ u widgetu — ista radnja briše i zapise o vašem pristanku s naših poslužitelja. To ne utječe na zakonitost obrade prije povlačenja.",
 "consent.rights2":
   "Osim povlačenja pristanka, imate pravo zatražiti pristup ili brisanje vaših podataka pohranjenih u našim sustavima (tehnički zapisi, metriku troškova) putem vlasnika web stranice. Potpuni detalji u <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Politici privatnosti</a>.",
 "consent.rights3":
@@ -147,10 +149,10 @@ export const translations = {
 "privacy.policy_version": "Verzija politike",
 "privacy.usage_count": "Broj korištenja",
 "privacy.no_data": "Podaci o pristanku nisu pronađeni na ovom uređaju.",
-"privacy.delete_title": "Izbriši moje podatke",
+"privacy.delete_title": "Povuci privolu i izbriši moje podatke",
 "privacy.delete_description": "Ovo će trajno izbrisati sve vaše zapise pristanka s naših poslužitelja i očistiti lokalne podatke. Ova radnja se ne može poništiti.",
 "privacy.delete_confirm": "Razumijem da je ovo trajno",
-"privacy.delete_button": "Izbriši moje podatke",
+"privacy.delete_button": "Povuci privolu i izbriši moje podatke",
 "privacy.deleting": "Brisanje...",
 "privacy.delete_success": "Svi vaši podaci uspješno su izbrisani.",
 "privacy.delete_error": "Nije moguće izbrisati podatke. Pokušajte ponovo ili kontaktirajte info@webappski.com.",

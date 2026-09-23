@@ -95,7 +95,7 @@ export const translations = {
 "consent.full_details_title": "Les Fullstendige Detaljer",
 "consent.section1_title": "Hvilke data behandler vi?",
 "consent.data1":
-  "Stemmeoppptak. Lydfil sendt til OpenAI Whisper via vår server for transkripsjon. Filen lagres ikke på serveren etter behandling.",
+  "Stemmeoppptak. Lydfil sendt til OpenAI via vår server for transkripsjon. Filen lagres ikke på serveren etter behandling.",
 "consent.data2":
   "Stemmetranskripsjon (tekst). Sendt til OpenAI GPT for utfylling av skjema. Som standard lagrer vi ikke transkripsjonen i våre systemer; i tekniske logger lagrer vi kun metadata (tekstlengde, språk, varighet). Viktig: OpenAI kan lagre forespørselsdata i opptil 30 dager for å forhindre misbruk; tidlig sletting hos OpenAI er ikke tilgjengelig; data brukes ikke til modelltrening.",
 "consent.data3":
@@ -106,6 +106,8 @@ export const translations = {
   "Nettleser User-Agent. Brukt lokalt og av vår infrastruktur (kompatibilitet/sikkerhet), IKKE sendt til OpenAI.",
 "consent.data6":
   "IP-adresse. Logget av Google Cloud/Firebase-infrastruktur for sikkerhet (opptil 30 dager), IKKE sendt til OpenAI.",
+"consent.retention":
+  "Hvor lenge vi oppbevarer registreringen av samtykket ditt. Registreringen av dette samtykket oppbevares i {months} måneder fra ditt siste samtykke og slettes deretter automatisk. Trekker du samtykket tilbake, slettes den tidligere.",
 "consent.section2_title":
   "Hvor og på hvilket rettslig grunnlag overføres data?",
 "consent.recipients":
@@ -118,7 +120,7 @@ export const translations = {
   "Tekniske logger (IP/UA/URL) — legitime interesser (Art. 6(1)(f)) — sikkerhet og feilsøking.",
 "consent.section3_title": "Dine rettigheter",
 "consent.rights1":
-  "Du kan trekke tilbake samtykke i widgetinnstillinger når som helst; dette påvirker ikke lovligheten av behandling før tilbaketrekning.",
+  "Du kan når som helst trekke tilbake samtykket i panelet «Personvern & Data» i widgeten — samme handling sletter også registreringene av samtykket ditt fra serverne våre. Dette påvirker ikke lovligheten av behandlingen før tilbaketrekkingen.",
 "consent.rights2":
   "I tillegg til å trekke tilbake samtykke har du rett til å be om tilgang eller sletting av dataene dine lagret i våre systemer (tekniske logger, kostnadsmålinger) via nettstedeieren. Fullstendige detaljer i <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Personvernregler</a>.",
 "consent.rights3":
@@ -144,10 +146,10 @@ export const translations = {
 "privacy.policy_version": "Policyversjon",
 "privacy.usage_count": "Antall bruk",
 "privacy.no_data": "Ingen samtykkeopplysninger funnet på denne enheten.",
-"privacy.delete_title": "Slett mine data",
+"privacy.delete_title": "Trekk tilbake samtykke og slett mine data",
 "privacy.delete_description": "Dette vil permanent slette alle dine samtykkeregistreringer fra våre servere og tømme lokale data. Denne handlingen kan ikke angres.",
 "privacy.delete_confirm": "Jeg forstår at dette er permanent",
-"privacy.delete_button": "Slett mine data",
+"privacy.delete_button": "Trekk tilbake samtykke og slett mine data",
 "privacy.deleting": "Sletter...",
 "privacy.delete_success": "Alle dine data er slettet.",
 "privacy.delete_error": "Kunne ikke slette data. Prøv igjen eller kontakt info@webappski.com.",

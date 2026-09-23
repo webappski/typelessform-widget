@@ -95,7 +95,7 @@ export const translations = {
 "consent.full_details_title": "Přečíst Úplné Podrobnosti",
 "consent.section1_title": "Jaká data zpracováváme?",
 "consent.data1":
-  "Hlasový záznam. Zvukový soubor odeslaný do OpenAI Whisper prostřednictvím našeho serveru k přepisu. Soubor není po zpracování uložen na serveru.",
+  "Hlasový záznam. Zvukový soubor odeslaný do OpenAI prostřednictvím našeho serveru k přepisu. Soubor není po zpracování uložen na serveru.",
 "consent.data2":
   "Přepis hlasu (text). Odesláno do OpenAI GPT k vyplnění formuláře. Ve výchozím nastavení přepis neukládáme v našich systémech; v technických protokolech ukládáme pouze metadata (délka textu, jazyk, trvání). Důležité: OpenAI může ukládat data požadavků až 30 dní pro prevenci zneužití; předčasné vymazání v OpenAI není k dispozici; data nejsou používána k trénování modelů.",
 "consent.data3":
@@ -106,6 +106,8 @@ export const translations = {
   "User-Agent prohlížeče. Používán lokálně a naší infrastrukturou (kompatibilita/zabezpečení), NENÍ odeslán do OpenAI.",
 "consent.data6":
   "IP adresa. Zaznamenána infrastrukturou Google Cloud/Firebase pro zabezpečení (až 30 dní), NENÍ odeslána do OpenAI.",
+"consent.retention":
+  "Jak dlouho uchováváme záznam o vašem souhlasu. Záznam o tomto souhlasu uchováváme {months} měsíců od vašeho posledního souhlasu, poté jej automaticky smažeme. Odvoláním souhlasu se smaže dříve.",
 "consent.section2_title":
   "Kam a na jakém právním základě jsou data přenášena?",
 "consent.recipients":
@@ -119,7 +121,7 @@ export const translations = {
   "Technické protokoly (IP/UA/URL) — oprávněné zájmy (čl. 6 odst. 1 písm. f)) — zabezpečení a ladění.",
 "consent.section3_title": "Vaše práva",
 "consent.rights1":
-  "Souhlas můžete kdykoli odvolat v nastavení widgetu; to neovlivňuje zákonnost zpracování před odvoláním.",
+  "Souhlas můžete kdykoli odvolat v panelu „Soukromí a data“ ve widgetu — stejná akce zároveň smaže záznamy o vašem souhlasu z našich serverů. To neovlivňuje zákonnost zpracování před odvoláním.",
 "consent.rights2":
   "Kromě odvolání souhlasu máte právo požádat o přístup nebo vymazání vašich údajů uložených v našich systémech (technické protokoly, nákladové metriky) prostřednictvím vlastníka webu. Úplné podrobnosti v <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Zásadách ochrany osobních údajů</a>.",
 "consent.rights3":
@@ -146,10 +148,10 @@ export const translations = {
 "privacy.policy_version": "Verze zásad",
 "privacy.usage_count": "Počet použití",
 "privacy.no_data": "Na tomto zařízení nebyla nalezena žádná data o souhlasu.",
-"privacy.delete_title": "Smazat moje data",
+"privacy.delete_title": "Odvolat souhlas a smazat moje data",
 "privacy.delete_description": "Toto trvale smaže všechny vaše záznamy o souhlasu z našich serverů a vymaže lokální data. Tuto akci nelze vrátit zpět.",
 "privacy.delete_confirm": "Chápu, že je to trvalé",
-"privacy.delete_button": "Smazat moje data",
+"privacy.delete_button": "Odvolat souhlas a smazat moje data",
 "privacy.deleting": "Mazání...",
 "privacy.delete_success": "Všechna vaše data byla úspěšně smazána.",
 "privacy.delete_error": "Nepodařilo se smazat data. Zkuste to znovu nebo kontaktujte info@webappski.com.",

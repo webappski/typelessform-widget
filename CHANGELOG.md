@@ -5,6 +5,54 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.9] - 2026-09-22
+
+### Changed
+- The accuracy figure on the package and the README is now our own measurement:
+  given a correct transcript, 98.5% of spoken fields are filled correctly — a
+  frozen 27-utterance corpus, 195 field observations, measured 2026-09-21,
+  method at
+  https://typelessform.com/blog/how-accurate-is-voice-form-filling-2026/. It
+  replaces a 96% that was a speech vendor's own figure, for a different
+  operation, quoted as if it were ours.
+
+### Fixed
+- The consent notice named "OpenAI Whisper" as the processor in all 25 locales.
+  The service has never called whisper-1. The notice now names the recipient and
+  the purpose and no model version at all — a version rots faster than 25
+  locales get retranslated.
+- The consent notice now says how long the consent record is kept (24 months
+  from your most recent consent, deleted automatically after that) and that
+  withdrawing consent deletes it sooner. The period is bound to the value the
+  backend actually stamps, so the sentence cannot drift away from the deletion.
+- That retention sentence existed in English only. `t()` has no English
+  fallback, so twenty-four locales rendered the literal key `consent.retention`
+  inside the notice, with the number never substituted. It is written in all 25
+  now, each naming the privacy panel the way that locale's own UI labels it.
+- The withdrawal guarantee ("the same action also deletes your consent records
+  from our servers") had been written in English only as well. The other
+  twenty-four locales promised less than the widget actually does.
+- The control that withdraws consent now says withdrawal.
+- For an error it does not recognise, the modal printed the same sentence twice,
+  one line under the other. It states it once; a recognised error still shows
+  its own detail.
+- A consent given on 29 February was kept a day past the period the notice
+  states: twenty-four months on, that date does not exist, and the surplus
+  rolled into 1 March. The day is clamped, and the arithmetic reads the clock in
+  UTC rather than the host's.
+- Fields that name a second factor — 2FA, MFA, authenticator, one-time password,
+  verification or recovery code — are now excluded from AI processing by a
+  deterministic rule rather than by the classifier's judgement. Ordinary fields
+  that merely end in "code" (zip, country, promo) are still filled.
+
+### Internal
+- The E2E suite builds its own stand and tears it down, and refuses to run if
+  the built bundle points at production endpoints. Tests that need a live
+  backend are opt-in behind `TF_LIVE_TESTS=1` and print their estimated cost
+  before starting.
+- Deploying hosting rebuilds the widget in production mode first, so a
+  development bundle left by a test run cannot ship.
+
 ## [1.0.8] - 2026-09-16
 
 ### Fixed

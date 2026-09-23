@@ -96,7 +96,7 @@ export const translations = {
 "consent.full_details_title": "Przeczytaj Pełne Szczegóły",
 "consent.section1_title": "Jakie dane przetwarzamy?",
 "consent.data1":
-  "Nagranie głosowe. Plik audio wysyłany do OpenAI Whisper przez nasz serwer w celu transkrypcji. Plik nie jest zapisywany na serwerze po przetworzeniu.",
+  "Nagranie głosowe. Plik audio wysyłany do OpenAI przez nasz serwer w celu transkrypcji. Plik nie jest zapisywany na serwerze po przetworzeniu.",
 "consent.data2":
   "Transkrypcja głosu (tekst). Wysyłana do OpenAI GPT w celu wypełniania formularzy. Domyślnie nie zapisujemy transkrypcji w naszych systemach; w logach technicznych przechowujemy tylko metadane (długość tekstu, język, czas trwania). Ważne: OpenAI może przechowywać dane żądań do 30 dni w celu zapobiegania nadużyciom; wcześniejsze usunięcie w OpenAI nie jest dostępne; dane nie są wykorzystywane do trenowania modeli.",
 "consent.data3":
@@ -107,6 +107,8 @@ export const translations = {
   "User-Agent przeglądarki. Używany lokalnie i przez naszą infrastrukturę (kompatybilność/bezpieczeństwo), NIE wysyłany do OpenAI.",
 "consent.data6":
   "Adres IP. Rejestrowany przez infrastrukturę Google Cloud/Firebase w celach bezpieczeństwa (do 30 dni), NIE wysyłany do OpenAI.",
+"consent.retention":
+  "Jak długo przechowujemy zapis Twojej zgody. Zapis tej zgody przechowujemy przez {months} miesięcy od Twojej ostatniej zgody, po czym jest automatycznie usuwany. Wycofanie zgody usuwa go wcześniej.",
 "consent.section2_title":
   "Gdzie i na jakiej podstawie prawnej dane są przekazywane?",
 "consent.recipients":
@@ -119,7 +121,7 @@ export const translations = {
   "Logi techniczne (IP/UA/URL) — prawnie uzasadnione interesy (Art. 6(1)(f)) — bezpieczeństwo i debugowanie.",
 "consent.section3_title": "Twoje prawa",
 "consent.rights1":
-  "Możesz cofnąć zgodę w ustawieniach widgetu w dowolnym momencie; nie wpływa to na zgodność z prawem przetwarzania przed cofnięciem.",
+  "Zgodę możesz wycofać w dowolnym momencie w panelu „Prywatność i dane” w widgecie — to samo działanie usuwa również zapisy Twojej zgody z naszych serwerów. Nie wpływa to na zgodność z prawem przetwarzania przed wycofaniem.",
 "consent.rights2":
   "Oprócz cofnięcia zgody masz prawo żądać dostępu lub usunięcia Twoich danych przechowywanych w naszych systemach (logi techniczne, metryki kosztów) za pośrednictwem właściciela witryny. Pełne szczegóły w <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Polityce Prywatności</a>.",
 "consent.rights3":
@@ -147,10 +149,10 @@ export const translations = {
 "privacy.policy_version": "Wersja polityki",
 "privacy.usage_count": "Liczba użyć",
 "privacy.no_data": "Nie znaleziono danych o zgodzie na tym urządzeniu.",
-"privacy.delete_title": "Usuń moje dane",
+"privacy.delete_title": "Wycofaj zgodę i usuń moje dane",
 "privacy.delete_description": "To trwale usunie wszystkie Twoje zapisy zgody z naszych serwerów i wyczyści lokalne dane. Tej operacji nie można cofnąć.",
 "privacy.delete_confirm": "Rozumiem, że to nieodwracalne",
-"privacy.delete_button": "Usuń moje dane",
+"privacy.delete_button": "Wycofaj zgodę i usuń moje dane",
 "privacy.deleting": "Usuwanie...",
 "privacy.delete_success": "Wszystkie Twoje dane zostały pomyślnie usunięte.",
 "privacy.delete_error": "Nie udało się usunąć danych. Spróbuj ponownie lub napisz na info@webappski.com.",

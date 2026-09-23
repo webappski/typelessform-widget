@@ -6,9 +6,13 @@ import { html, type TemplateResult } from 'lit';
 import { unsafeHTML } from 'lit/directives/unsafe-html.js';
 import { icons } from '../../constants/icons.js';
 import { renderModalHeader } from './shared.js';
+import { CONSENT_RETENTION_MONTHS } from '../../constants/config.js';
+
+/** Matches TranslationService.t — the params form is what interpolates {months}. */
+type TranslateFn = (key: string, params?: Record<string, string | number>) => string;
 
 export interface RenderConsentOptions {
-  t: (key: string) => string;
+  t: TranslateFn;
   handleAcceptConsent: () => void;
   handleDeclineConsent: () => void;
   consentCheckboxMain: boolean;
@@ -59,7 +63,7 @@ function renderSummary(t: (key: string) => string): TemplateResult {
 }
 
 /** Render full legal details inside progressive disclosure */
-function renderFullDetails(t: (key: string) => string): TemplateResult {
+function renderFullDetails(t: TranslateFn): TemplateResult {
   return html`
     <details class="consent-full-details">
       <summary class="consent-details-toggle">${t('consent.full_details_title')}</summary>
@@ -67,6 +71,9 @@ function renderFullDetails(t: (key: string) => string): TemplateResult {
         <h5 class="consent-section-title">${t('consent.section1_title')}</h5>
         <ul class="consent-list">
           ${['data1', 'data2', 'data3', 'data4', 'data5', 'data6'].map(key => html`<li>${t(`consent.${key}`)}</li>`)}
+          <!-- The retention period is interpolated, never written into the string:
+               the number the user reads has to be the number the backend uses. -->
+          <li>${t('consent.retention', { months: CONSENT_RETENTION_MONTHS })}</li>
         </ul>
         <h5 class="consent-section-title">${t('consent.section2_title')}</h5>
         <ul class="consent-list">

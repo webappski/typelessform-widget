@@ -94,7 +94,7 @@ export const translations = {
 "consent.full_details_title": "Läs Fullständiga Detaljer",
 "consent.section1_title": "Vilka uppgifter behandlar vi?",
 "consent.data1":
-  "Röstinspelning. Ljudfil skickas till OpenAI Whisper via vår server för transkribering. Filen sparas inte på servern efter behandling.",
+  "Röstinspelning. Ljudfil skickas till OpenAI via vår server för transkribering. Filen sparas inte på servern efter behandling.",
 "consent.data2":
   "Rösttranskription (text). Skickas till OpenAI GPT för formulärfyllning. Som standard sparar vi inte transkriptionen i våra system; i tekniska loggar lagrar vi endast metadata (textlängd, språk, varaktighet). Viktigt: OpenAI kan lagra förfrågningsdata i upp till 30 dagar för att förhindra missbruk; tidig radering hos OpenAI är inte tillgänglig; data används inte för modellträning.",
 "consent.data3":
@@ -105,6 +105,8 @@ export const translations = {
   "Webbläsarens User-Agent. Används lokalt och av vår infrastruktur (kompatibilitet/säkerhet), INTE skickat till OpenAI.",
 "consent.data6":
   "IP-adress. Loggad av Google Cloud/Firebase-infrastruktur för säkerhet (upp till 30 dagar), INTE skickat till OpenAI.",
+"consent.retention":
+  "Hur länge vi sparar registreringen av ditt samtycke. Registreringen av detta samtycke sparas i {months} månader från ditt senaste samtycke och raderas sedan automatiskt. Om du återkallar samtycket raderas den tidigare.",
 "consent.section2_title":
   "Vart och på vilken rättslig grund överförs uppgifter?",
 "consent.recipients":
@@ -117,7 +119,7 @@ export const translations = {
   "Tekniska loggar (IP/UA/URL) — berättigade intressen (Art. 6(1)(f)) — säkerhet och felsökning.",
 "consent.section3_title": "Dina rättigheter",
 "consent.rights1":
-  "Du kan återkalla samtycke i widgetinställningar när som helst; detta påverkar inte lagligheten av behandling före återkallelse.",
+  "Du kan när som helst återkalla ditt samtycke i widgetens panel ”Integritet & Data” — samma åtgärd raderar även registreringarna av ditt samtycke från våra servrar. Detta påverkar inte lagligheten av behandlingen före återkallelsen.",
 "consent.rights2":
   "Förutom att återkalla samtycke har du rätt att begära åtkomst eller radering av dina uppgifter lagrade i våra system (tekniska loggar, kostnadsmått) via webbplatsägaren. Fullständig information i <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Integritetspolicy</a>.",
 "consent.rights3":
@@ -145,10 +147,10 @@ export const translations = {
 "privacy.policy_version": "Policyversion",
 "privacy.usage_count": "Antal användningar",
 "privacy.no_data": "Inga samtyckesuppgifter hittades på denna enhet.",
-"privacy.delete_title": "Radera mina uppgifter",
+"privacy.delete_title": "Återkalla samtycke och radera mina uppgifter",
 "privacy.delete_description": "Detta raderar permanent alla dina samtyckesregistreringar från våra servrar och rensar lokala data. Denna åtgärd kan inte ångras.",
 "privacy.delete_confirm": "Jag förstår att detta är permanent",
-"privacy.delete_button": "Radera mina uppgifter",
+"privacy.delete_button": "Återkalla samtycke och radera mina uppgifter",
 "privacy.deleting": "Raderar...",
 "privacy.delete_success": "Alla dina uppgifter har raderats.",
 "privacy.delete_error": "Kunde inte radera uppgifter. Försök igen eller kontakta info@webappski.com.",

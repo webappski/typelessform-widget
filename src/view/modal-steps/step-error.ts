@@ -57,7 +57,13 @@ function renderErrorDetails(details: string | null, t: (key: string) => string):
 export function renderErrorStep(opts: ErrorStepOptions): TemplateResult {
   const { errorMessage, errorDetails, t, resetToInitial, closeModal } = opts;
   const errorTitle = getErrorTitle(errorMessage, t);
-  const errorSubtitle = getErrorSubtitle(errorMessage, t);
+  const rawSubtitle = getErrorSubtitle(errorMessage, t);
+  // An unrecognised error takes t('error.general') as its title, while the
+  // subtitle falls back to errorMessage itself — and in three places that IS
+  // t('error.general') (error-handler.ts:72, ui-events.ts:42,
+  // llm-pipeline-controller.ts:178). The user read the same sentence twice,
+  // one line under the other. Drop the repeat; no new string to translate.
+  const errorSubtitle = rawSubtitle === errorTitle ? '' : rawSubtitle;
   const nonRetryable = isNonRetryableError(errorMessage, t);
   const buttonText = nonRetryable ? t('button.close') : t('button.tryAgain');
   const buttonHandler = nonRetryable && closeModal ? closeModal : resetToInitial;

@@ -91,7 +91,7 @@ export const translations = {
 "consent.full_details_title": "阅读完整详细信息",
 "consent.section1_title": "我们处理哪些数据?",
 "consent.data1":
-  "语音录音。音频文件通过我们的服务器发送到OpenAI Whisper进行转录。处理后文件不会保存在服务器上。",
+  "语音录音。音频文件通过我们的服务器发送到OpenAI进行转录。处理后文件不会保存在服务器上。",
 "consent.data2":
   "语音转录(文本)。发送到OpenAI GPT用于表单填写。默认情况下,我们不在系统中保存转录;在技术日志中我们仅存储元数据(文本长度、语言、时长)。重要提示:OpenAI可能会存储请求数据长达30天以防止滥用;OpenAI不提供提前删除;数据不用于模型训练。",
 "consent.data3": "表单字段元数据。名称/类型/占位符(排除敏感字段)。",
@@ -101,6 +101,8 @@ export const translations = {
   "浏览器User-Agent。在本地和我们的基础设施中使用(兼容性/安全),不发送到OpenAI。",
 "consent.data6":
   "IP地址。由Google Cloud/Firebase基础设施记录用于安全(最多30天),不发送到OpenAI。",
+"consent.retention":
+  "我们保存您同意记录的期限。本次同意的记录自您最近一次同意起保存 {months} 个月，之后会自动删除。撤回同意会更早删除该记录。",
 "consent.section2_title": "数据传输到何处以及基于何种法律依据?",
 "consent.recipients":
   "接收方。OpenAI(美国)——音频/文本处理;Google Cloud/Firebase(欧盟/波兰)——托管和安全日志。数据不用于模型训练。",
@@ -112,7 +114,7 @@ export const translations = {
   "技术日志(IP/UA/URL)——合法利益(第6(1)(f)条)——安全和调试。",
 "consent.section3_title": "您的权利",
 "consent.rights1":
-  "您可以随时在小部件设置中撤回同意;这不影响撤回前处理的合法性。",
+  "您可以随时在小部件的「隐私与数据」面板中撤回同意——同一操作也会从我们的服务器删除您的同意记录。这不影响撤回前处理的合法性。",
 "consent.rights2":
   "除撤回同意外,您还有权通过网站所有者请求访问或删除存储在我们系统中的数据(技术日志、成本指标)。<a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>隐私政策</a>中的完整详细信息。",
 "consent.rights3":
@@ -138,10 +140,10 @@ export const translations = {
 "privacy.policy_version": "政策版本",
 "privacy.usage_count": "使用次数",
 "privacy.no_data": "此设备上未找到同意数据。",
-"privacy.delete_title": "删除我的数据",
+"privacy.delete_title": "撤回同意并删除我的数据",
 "privacy.delete_description": "这将永久删除我们服务器上的所有同意记录并清除本地数据。此操作无法撤销。",
 "privacy.delete_confirm": "我理解这是永久性的",
-"privacy.delete_button": "删除我的数据",
+"privacy.delete_button": "撤回同意并删除我的数据",
 "privacy.deleting": "正在删除...",
 "privacy.delete_success": "您的所有数据已成功删除。",
 "privacy.delete_error": "删除数据失败。请重试或联系 info@webappski.com。",

@@ -96,7 +96,7 @@ export const translations = {
 "consent.full_details_title": "詳細を読む",
 "consent.section1_title": "処理するデータは何ですか?",
 "consent.data1":
-  "音声録音。オーディオファイルは、転写のために当社のサーバー経由でOpenAI Whisperに送信されます。ファイルは処理後、サーバーに保存されません。",
+  "音声録音。オーディオファイルは、転写のために当社のサーバー経由でOpenAIに送信されます。ファイルは処理後、サーバーに保存されません。",
 "consent.data2":
   "音声転写(テキスト)。フォーム入力のためにOpenAI GPTに送信されます。デフォルトでは、システムに転写を保存しません。技術ログにはメタデータ(テキスト長、言語、期間)のみを保存します。重要:OpenAIは不正使用防止のため最大30日間リクエストデータを保存する場合があります。OpenAIでの早期削除は利用できません。データはモデルトレーニングには使用されません。",
 "consent.data3":
@@ -107,6 +107,8 @@ export const translations = {
   "ブラウザUser-Agent。ローカルおよび当社のインフラストラクチャで使用されます(互換性/セキュリティ)。OpenAIには送信されません。",
 "consent.data6":
   "IPアドレス。セキュリティのためGoogle Cloud/Firebaseインフラストラクチャで記録されます(最大30日)。OpenAIには送信されません。",
+"consent.retention":
+  "同意記録の保存期間。この同意の記録は、直近の同意から{months}か月間保存され、その後自動的に削除されます。同意を撤回すると、それより早く削除されます。",
 "consent.section2_title":
   "データはどこに、どのような法的根拠で転送されますか?",
 "consent.recipients":
@@ -119,7 +121,7 @@ export const translations = {
   "技術ログ(IP/UA/URL)—正当な利益(第6(1)(f)条)—セキュリティとデバッグ。",
 "consent.section3_title": "あなたの権利",
 "consent.rights1":
-  "ウィジェット設定でいつでも同意を撤回できます。撤回前の処理の合法性には影響しません。",
+  "ウィジェットの「プライバシーとデータ」パネルからいつでも同意を撤回できます。同じ操作で、当社サーバー上の同意記録も削除されます。撤回前に行われた処理の適法性には影響しません。",
 "consent.rights2":
   "同意の撤回に加えて、ウェブサイト所有者を通じて、当社のシステムに保存されているデータ(技術ログ、コストメトリクス)へのアクセスまたは削除を要求する権利があります。<a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>プライバシーポリシー</a>の詳細をご覧ください。",
 "consent.rights3":
@@ -145,10 +147,10 @@ export const translations = {
 "privacy.policy_version": "ポリシーバージョン",
 "privacy.usage_count": "使用回数",
 "privacy.no_data": "このデバイスに同意データが見つかりません。",
-"privacy.delete_title": "データを削除",
+"privacy.delete_title": "同意を撤回してデータを削除",
 "privacy.delete_description": "これにより、サーバー上のすべての同意記録が完全に削除され、ローカルデータもクリアされます。この操作は元に戻せません。",
 "privacy.delete_confirm": "これが永続的であることを理解しています",
-"privacy.delete_button": "データを削除",
+"privacy.delete_button": "同意を撤回してデータを削除",
 "privacy.deleting": "削除中...",
 "privacy.delete_success": "すべてのデータが正常に削除されました。",
 "privacy.delete_error": "データの削除に失敗しました。再試行するか、info@webappski.comにご連絡ください。",

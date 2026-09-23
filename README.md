@@ -2,7 +2,7 @@
 
 > **One-Shot Voice Form Filling Widget** — fill all fields at once by speaking a single sentence.
 
-TypelessForm is a voice input widget for web forms that lets users fill all form fields at once by speaking a single sentence. Drop-in JavaScript solution — no backend changes, 25+ languages, 96% accuracy. Free tier: 200 fills.
+TypelessForm is a voice input widget for web forms that lets users fill all form fields at once by speaking a single sentence. Drop-in JavaScript solution — no backend changes, 25 interface languages. In our own measurement, given a correct transcript 98.5% of spoken fields are filled correctly (195 field observations across 27 utterances and 3 forms in English, Russian and German, measured 2026-09-21). Speech recognition itself is not part of that figure. [Method, corpus and raw runs](https://typelessform.com/blog/how-accurate-is-voice-form-filling-2026/). Free tier: 200 fills.
 
 TypelessForm is a drop-in voice input solution for web forms. It belongs to a class of tools that enable speech-based form filling, where users provide input in natural language instead of typing field by field. Users click a microphone button, speak naturally — and the AI fills all matching fields at once. Works with React, Vue, Angular, Next.js, Nuxt.js, WordPress, and plain HTML.
 
@@ -199,7 +199,7 @@ Place `<typeless-form>` **directly in `<body>`**, outside any `<form>` elements.
 3. AI converts speech into structured data and maps values to the correct fields
 4. All matching fields are filled automatically
 
-Typical processing time: ~2–3 seconds. Accuracy: up to 96% in optimal conditions.
+Accuracy: 98.5% of spoken fields filled correctly from a correct transcript (195 field observations, 27 utterances, 3 forms, en/ru/de, measured 2026-09-21). Speech recognition itself is not part of that figure — see below. [Method](https://typelessform.com/blog/how-accurate-is-voice-form-filling-2026/).
 
 ## Use Cases
 
@@ -427,7 +427,7 @@ Yes. TypelessForm is a framework-agnostic web component. It works with React, Vu
 
 ### Is voice data stored or sent to third parties?
 
-No. Audio is transcribed server-side via OpenAI Whisper and is not stored. The service is hosted in the EU (europe-central2). No voice recordings are retained after transcription. See [Privacy](#privacy).
+No. Audio is transcribed server-side by OpenAI and is not stored. The service is hosted in the EU (europe-central2). No voice recordings are retained after transcription. See [Privacy](#privacy).
 
 ### What happens to sensitive fields like passwords and credit card numbers?
 
@@ -439,7 +439,7 @@ No. TypelessForm is a pure frontend widget — it fills form fields in the brows
 
 ### How accurate is the field mapping?
 
-Up to 96% accuracy in optimal conditions. The AI uses OpenAI Whisper for speech-to-text and GPT for field mapping. It handles accents, abbreviations, and natural phrasing. Users always review the filled fields before submitting.
+We measure it on our own corpus rather than quote a vendor benchmark. Given a correct transcript, 98.5% of the fields a speaker actually named are filled correctly — 195 field observations across 27 utterances and 3 forms in English, Russian and German, measured 2026-09-21 on a frozen corpus we publish, so the same number can be re-measured after any model change. Speech is transcribed by OpenAI and mapped to your fields by an OpenAI GPT model; we have not separately measured transcription accuracy, so it is not part of that number. The full method, the corpus and the runs — including the defects the measurement found and the improvement it rejected — are at [How accurate is voice form filling](https://typelessform.com/blog/how-accurate-is-voice-form-filling-2026/). Users always review the filled fields before submitting.
 
 ### What languages are supported?
 

@@ -96,7 +96,7 @@ export const translations = {
 "consent.full_details_title": "Teljes Részletek Olvasása",
 "consent.section1_title": "Milyen adatokat dolgozunk fel?",
 "consent.data1":
-  "Hangfelvétel. Hangfájl elküldve az OpenAI Whispernek szerverünkön keresztül átíráshoz. A fájl nem kerül mentésre a szerveren feldolgozás után.",
+  "Hangfelvétel. Hangfájl elküldve az OpenAI-nak szerverünkön keresztül átíráshoz. A fájl nem kerül mentésre a szerveren feldolgozás után.",
 "consent.data2":
   "Hangátirat (szöveg). Elküldve az OpenAI GPT-nek űrlapkitöltéshez. Alapértelmezés szerint nem mentjük az átiratot rendszereinkben; technikai naplókban csak metaadatokat tárolunk (szöveghossz, nyelv, időtartam). Fontos: Az OpenAI akár 30 napig tárolhatja a kérésadatokat visszaélések megelőzésére; korai törlés az OpenAI-nál nem elérhető; az adatokat nem használják modellképzéshez.",
 "consent.data3":
@@ -107,6 +107,8 @@ export const translations = {
   "Böngésző User-Agent. Helyileg és infrastruktúránk használja (kompatibilitás/biztonság), NEM küldjük el az OpenAI-nak.",
 "consent.data6":
   "IP-cím. A Google Cloud/Firebase infrastruktúra naplózza biztonság érdekében (legfeljebb 30 napig), NEM küldjük el az OpenAI-nak.",
+"consent.retention":
+  "Meddig őrizzük a hozzájárulásáról szóló feljegyzést. A hozzájárulás feljegyzését a legutóbbi hozzájárulásától számított {months} hónapig őrizzük, majd automatikusan töröljük. A hozzájárulás visszavonása ezt korábban törli.",
 "consent.section2_title":
   "Hová és milyen jogalappal kerülnek továbbításra az adatok?",
 "consent.recipients":
@@ -120,7 +122,7 @@ export const translations = {
   "Technikai naplók (IP/UA/URL) — jogos érdekek (6. cikk (1) bekezdés f) pont) — biztonság és hibakeresés.",
 "consent.section3_title": "Az Ön jogai",
 "consent.rights1":
-  "Bármikor visszavonhatja hozzájárulását a widget beállításaiban; ez nem érinti a visszavonás előtti feldolgozás jogszerűségét.",
+  "Hozzájárulását bármikor visszavonhatja a widget „Adatvédelem és adatok” paneljén — ugyanez a művelet a hozzájárulásáról szóló feljegyzéseket is törli a szervereinkről. Ez nem érinti a visszavonás előtti adatkezelés jogszerűségét.",
 "consent.rights2":
   "A hozzájárulás visszavonásán túl jogában áll kérni rendszereinkben tárolt adataihoz (technikai naplók, költségmutatók) való hozzáférést vagy azok törlését a webhely tulajdonosán keresztül. Teljes részletek az <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Adatvédelmi Szabályzatban</a>.",
 "consent.rights3":
@@ -147,10 +149,10 @@ export const translations = {
 "privacy.policy_version": "Szabályzat verziója",
 "privacy.usage_count": "Használatok száma",
 "privacy.no_data": "Nem található hozzájárulási adat ezen az eszközön.",
-"privacy.delete_title": "Adataim törlése",
+"privacy.delete_title": "Hozzájárulás visszavonása és adataim törlése",
 "privacy.delete_description": "Ez véglegesen törli az összes hozzájárulási rekordot szervereinkről és törli a helyi adatokat. Ez a művelet nem vonható vissza.",
 "privacy.delete_confirm": "Megértem, hogy ez végleges",
-"privacy.delete_button": "Adataim törlése",
+"privacy.delete_button": "Hozzájárulás visszavonása és adataim törlése",
 "privacy.deleting": "Törlés...",
 "privacy.delete_success": "Minden adata sikeresen törölve.",
 "privacy.delete_error": "Az adatok törlése sikertelen. Próbálja újra vagy írjon az info@webappski.com címre.",

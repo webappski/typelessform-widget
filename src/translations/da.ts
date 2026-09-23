@@ -95,7 +95,7 @@ export const translations = {
 "consent.full_details_title": "Læs Fulde Detaljer",
 "consent.section1_title": "Hvilke data behandler vi?",
 "consent.data1":
-  "Stemmeoptagelse. Lydfil sendt til OpenAI Whisper via vores server til transskription. Filen gemmes ikke på serveren efter behandling.",
+  "Stemmeoptagelse. Lydfil sendt til OpenAI via vores server til transskription. Filen gemmes ikke på serveren efter behandling.",
 "consent.data2":
   "Stemmetransskription (tekst). Sendt til OpenAI GPT til formularudfyldning. Som standard gemmer vi ikke transskriptionen i vores systemer; i tekniske logs gemmer vi kun metadata (tekstlængde, sprog, varighed). Vigtigt: OpenAI kan gemme anmodningsdata i op til 30 dage for at forhindre misbrug; tidlig sletning hos OpenAI er ikke tilgængelig; data bruges ikke til modeltræning.",
 "consent.data3":
@@ -106,6 +106,8 @@ export const translations = {
   "Browser User-Agent. Brugt lokalt og af vores infrastruktur (kompatibilitet/sikkerhed), IKKE sendt til OpenAI.",
 "consent.data6":
   "IP-adresse. Logget af Google Cloud/Firebase-infrastruktur til sikkerhed (op til 30 dage), IKKE sendt til OpenAI.",
+"consent.retention":
+  "Hvor længe vi gemmer registreringen af dit samtykke. Registreringen af dette samtykke opbevares i {months} måneder fra dit seneste samtykke og slettes derefter automatisk. Tilbagekalder du samtykket, slettes den før.",
 "consent.section2_title":
   "Hvortil og på hvilket retsgrundlag overføres data?",
 "consent.recipients":
@@ -118,7 +120,7 @@ export const translations = {
   "Tekniske logs (IP/UA/URL) — legitime interesser (Art. 6(1)(f)) — sikkerhed og fejlfinding.",
 "consent.section3_title": "Dine rettigheder",
 "consent.rights1":
-  "Du kan tilbagekalde samtykke i widget-indstillinger når som helst; dette påvirker ikke lovligheden af behandling før tilbagekaldelse.",
+  "Du kan til enhver tid tilbagekalde dit samtykke i widgettens panel „Privatliv & Data“ — samme handling sletter også registreringerne af dit samtykke fra vores servere. Dette påvirker ikke lovligheden af behandlingen før tilbagekaldelsen.",
 "consent.rights2":
   "Ud over at tilbagekalde samtykke har du ret til at anmode om adgang eller sletning af dine data gemt i vores systemer (tekniske logs, omkostningsmålinger) via websideejeren. Fuld information i <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Privatlivspolitik</a>.",
 "consent.rights3":
@@ -144,10 +146,10 @@ export const translations = {
 "privacy.policy_version": "Politikversion",
 "privacy.usage_count": "Antal brug",
 "privacy.no_data": "Ingen samtykkedata fundet på denne enhed.",
-"privacy.delete_title": "Slet mine data",
+"privacy.delete_title": "Tilbagetræk samtykke og slet mine data",
 "privacy.delete_description": "Dette vil permanent slette alle dine samtykkeregistreringer fra vores servere og rydde lokale data. Denne handling kan ikke fortrydes.",
 "privacy.delete_confirm": "Jeg forstår, at dette er permanent",
-"privacy.delete_button": "Slet mine data",
+"privacy.delete_button": "Tilbagetræk samtykke og slet mine data",
 "privacy.deleting": "Sletter...",
 "privacy.delete_success": "Alle dine data er blevet slettet.",
 "privacy.delete_error": "Kunne ikke slette data. Prøv igen eller kontakt info@webappski.com.",

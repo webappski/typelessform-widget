@@ -96,7 +96,7 @@ export const translations = {
 "consent.full_details_title": "Citiți Detaliile Complete",
 "consent.section1_title": "Ce date procesăm?",
 "consent.data1":
-  "Înregistrare vocală. Fișier audio trimis la OpenAI Whisper prin serverul nostru pentru transcriere. Fișierul nu este salvat pe server după procesare.",
+  "Înregistrare vocală. Fișier audio trimis la OpenAI prin serverul nostru pentru transcriere. Fișierul nu este salvat pe server după procesare.",
 "consent.data2":
   "Transcriere vocală (text). Trimisă la OpenAI GPT pentru completarea formularelor. În mod implicit nu salvăm transcrierea în sistemele noastre; în jurnalele tehnice stocăm doar metadate (lungimea textului, limba, durata). Important: OpenAI poate stoca datele cererilor până la 30 de zile pentru a preveni abuzurile; ștergerea anticipată la OpenAI nu este disponibilă; datele nu sunt utilizate pentru antrenarea modelelor.",
 "consent.data3":
@@ -107,6 +107,8 @@ export const translations = {
   "User-Agent browser. Utilizat local și de infrastructura noastră (compatibilitate/securitate), NU trimis către OpenAI.",
 "consent.data6":
   "Adresa IP. Înregistrată de infrastructura Google Cloud/Firebase pentru securitate (până la 30 de zile), NU trimisă către OpenAI.",
+"consent.retention":
+  "Cât timp păstrăm înregistrarea consimțământului dumneavoastră. Înregistrarea acestui consimțământ este păstrată {months} luni de la cel mai recent consimțământ, apoi este ștearsă automat. Retragerea consimțământului o șterge mai devreme.",
 "consent.section2_title":
   "Unde și pe ce bază legală sunt transferate datele?",
 "consent.recipients":
@@ -120,7 +122,7 @@ export const translations = {
   "Jurnale tehnice (IP/UA/URL) — interese legitime (Art. 6(1)(f)) — securitate și depanare.",
 "consent.section3_title": "Drepturile dvs.",
 "consent.rights1":
-  "Puteți retrage consimțământul în setările widget-ului oricând; aceasta nu afectează legalitatea procesării înainte de retragere.",
+  "Vă puteți retrage consimțământul oricând din panoul „Confidențialitate și date” al widget-ului — aceeași acțiune șterge și înregistrările consimțământului dumneavoastră de pe serverele noastre. Aceasta nu afectează legalitatea prelucrării efectuate înainte de retragere.",
 "consent.rights2":
   "Pe lângă retragerea consimțământului, aveți dreptul de a solicita accesul sau ștergerea datelor dvs. stocate în sistemele noastre (jurnale tehnice, valori de cost) prin proprietarul site-ului. Detalii complete în <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Politica de Confidențialitate</a>.",
 "consent.rights3":
@@ -148,10 +150,10 @@ export const translations = {
 "privacy.policy_version": "Versiunea politicii",
 "privacy.usage_count": "Număr de utilizări",
 "privacy.no_data": "Nu s-au găsit date de consimțământ pe acest dispozitiv.",
-"privacy.delete_title": "Șterge datele mele",
+"privacy.delete_title": "Retrage consimțământul și șterge datele mele",
 "privacy.delete_description": "Aceasta va șterge permanent toate înregistrările de consimțământ de pe serverele noastre și va curăța datele locale. Această acțiune nu poate fi anulată.",
 "privacy.delete_confirm": "Înțeleg că este permanent",
-"privacy.delete_button": "Șterge datele mele",
+"privacy.delete_button": "Retrage consimțământul și șterge datele mele",
 "privacy.deleting": "Se șterge...",
 "privacy.delete_success": "Toate datele dvs. au fost șterse cu succes.",
 "privacy.delete_error": "Nu s-au putut șterge datele. Încercați din nou sau contactați info@webappski.com.",

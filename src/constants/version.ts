@@ -8,7 +8,7 @@
  * legal records named a version no user was running. `tests/version-sync.test.mjs`
  * now fails the moment the two drift apart again.
  */
-export const WIDGET_VERSION = "1.0.8";
+export const WIDGET_VERSION = "1.0.9";
 
 /**
  * Debug flag for skipping to success step (must be false in production)

@@ -104,7 +104,7 @@ export const translations = {
 "consent.full_details_title": "Vollständige Details Lesen",
 "consent.section1_title": "Welche Daten verarbeiten wir?",
 "consent.data1":
-  "Sprachaufnahme. Audiodatei wird über unseren Server an OpenAI Whisper zur Transkription gesendet. Die Datei wird nach der Verarbeitung nicht auf dem Server gespeichert.",
+  "Sprachaufnahme. Audiodatei wird über unseren Server an OpenAI zur Transkription gesendet. Die Datei wird nach der Verarbeitung nicht auf dem Server gespeichert.",
 "consent.data2":
   "Sprachtranskription (Text). An OpenAI GPT zum Ausfüllen von Formularen gesendet. Standardmäßig speichern wir die Transkription nicht in unseren Systemen; in technischen Protokollen speichern wir nur Metadaten (Textlänge, Sprache, Dauer). Wichtig: OpenAI kann Anfragedaten bis zu 30 Tage speichern, um Missbrauch zu verhindern; vorzeitige Löschung bei OpenAI ist nicht verfügbar; Daten werden nicht zum Modelltraining verwendet.",
 "consent.data3":
@@ -115,6 +115,8 @@ export const translations = {
   "Browser-User-Agent. Lokal und von unserer Infrastruktur verwendet (Kompatibilität/Sicherheit), NICHT an OpenAI gesendet.",
 "consent.data6":
   "IP-Adresse. Von Google Cloud/Firebase-Infrastruktur für Sicherheit protokolliert (bis zu 30 Tage), NICHT an OpenAI gesendet.",
+"consent.retention":
+  "Wie lange wir Ihren Einwilligungsnachweis speichern. Der Nachweis dieser Einwilligung wird {months} Monate ab Ihrer letzten Einwilligung gespeichert und danach automatisch gelöscht. Mit dem Widerruf der Einwilligung wird er früher gelöscht.",
 "consent.section2_title":
   "Wohin und auf welcher Rechtsgrundlage werden Daten übertragen?",
 "consent.recipients":
@@ -128,7 +130,7 @@ export const translations = {
   "Technische Protokolle (IP/UA/URL) — berechtigte Interessen (Art. 6(1)(f)) — Sicherheit und Debugging.",
 "consent.section3_title": "Ihre Rechte",
 "consent.rights1":
-  "Sie können die Einwilligung in den Widget-Einstellungen jederzeit widerrufen; dies berührt nicht die Rechtmäßigkeit der Verarbeitung vor dem Widerruf.",
+  "Sie können Ihre Einwilligung jederzeit im Bereich „Datenschutz & Daten“ des Widgets widerrufen — derselbe Vorgang löscht auch Ihre Einwilligungsnachweise von unseren Servern. Die Rechtmäßigkeit der bis zum Widerruf erfolgten Verarbeitung bleibt davon unberührt.",
 "consent.rights2":
   "Zusätzlich zum Widerruf der Einwilligung haben Sie das Recht, Zugang oder Löschung Ihrer in unseren Systemen gespeicherten Daten (technische Protokolle, Kostenmetriken) über den Website-Eigentümer anzufordern. Vollständige Details in der <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Datenschutzerklärung</a>.",
 "consent.rights3":
@@ -156,10 +158,10 @@ export const translations = {
 "privacy.policy_version": "Richtlinienversion",
 "privacy.usage_count": "Nutzungsanzahl",
 "privacy.no_data": "Keine Einwilligungsdaten auf diesem Gerät gefunden.",
-"privacy.delete_title": "Meine Daten löschen",
+"privacy.delete_title": "Einwilligung widerrufen und meine Daten löschen",
 "privacy.delete_description": "Dies löscht dauerhaft alle Ihre Einwilligungsaufzeichnungen von unseren Servern und lokale Daten. Diese Aktion kann nicht rückgängig gemacht werden.",
 "privacy.delete_confirm": "Ich verstehe, dass dies dauerhaft ist",
-"privacy.delete_button": "Meine Daten löschen",
+"privacy.delete_button": "Einwilligung widerrufen und meine Daten löschen",
 "privacy.deleting": "Wird gelöscht...",
 "privacy.delete_success": "Alle Ihre Daten wurden erfolgreich gelöscht.",
 "privacy.delete_error": "Daten konnten nicht gelöscht werden. Bitte versuchen Sie es erneut oder kontaktieren Sie info@webappski.com.",

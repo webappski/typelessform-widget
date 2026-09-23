@@ -17,6 +17,19 @@ const initAnalyzeV2Url = import.meta.env.VITE_INIT_ANALYZE_V2_URL ||
   'http://127.0.0.1:5003/ai-form-copilot-eu/europe-central2/initAnalyzeV2';
 
 
+/**
+ * How long we keep a consent record, in calendar months — the number the
+ * consent notice speaks to the user (`consent.retention`).
+ *
+ * Bound to the backend's CONSENT_RETENTION_MONTHS in
+ * functions/src/consent-handler.ts, which is what actually sets `expiresAt`.
+ * The widget is a separate build and cannot import that file, so
+ * tests/consent-retention-matches-ttl.test.mjs reads both sources and fails if
+ * they drift. Change one without the other and the notice starts promising a
+ * deletion that does not happen on that schedule.
+ */
+export const CONSENT_RETENTION_MONTHS = 24;
+
 export const CONFIG = {
     DEFAULT_LANG: 'en',
     SUPPORTED_LANGS: ['en', 'de', 'fr', 'es', 'ru', 'pl', 'it', 'pt', 'zh', 'ja', 'ko', 'ar', 'hi', 'nl', 'sv', 'da', 'no', 'fi', 'tr', 'cs', 'el', 'he', 'th', 'id', 'ro'],

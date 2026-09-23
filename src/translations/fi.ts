@@ -93,7 +93,7 @@ export const translations = {
 "consent.full_details_title": "Lue Täydelliset Tiedot",
 "consent.section1_title": "Mitä tietoja käsittelemme?",
 "consent.data1":
-  "Äänitallennus. Äänitiedosto lähetetään OpenAI Whisperille palvelimemme kautta transkriptiota varten. Tiedostoa ei tallenneta palvelimelle käsittelyn jälkeen.",
+  "Äänitallennus. Äänitiedosto lähetetään OpenAI:lle palvelimemme kautta transkriptiota varten. Tiedostoa ei tallenneta palvelimelle käsittelyn jälkeen.",
 "consent.data2":
   "Äänitranskriptio (teksti). Lähetetään OpenAI GPT:lle lomakkeen täyttöä varten. Oletuksena emme tallenna transkriptiota järjestelmiimme; teknisissä lokeissa tallennamme vain metatiedot (tekstin pituus, kieli, kesto). Tärkeää: OpenAI saattaa tallentaa pyyntötiedot 30 päivään asti väärinkäytön estämiseksi; varhainen poisto OpenAI:ssa ei ole saatavilla; tietoja ei käytetä mallien kouluttamiseen.",
 "consent.data3":
@@ -104,6 +104,8 @@ export const translations = {
   "Selaimen User-Agent. Käytetään paikallisesti ja infrastruktuurissamme (yhteensopivuus/turvallisuus), EI lähetetä OpenAI:lle.",
 "consent.data6":
   "IP-osoite. Google Cloud/Firebase-infrastruktuuri kirjaa turvallisuuden vuoksi (enintään 30 päivää), EI lähetetä OpenAI:lle.",
+"consent.retention":
+  "Kuinka kauan säilytämme merkinnän suostumuksestasi. Tämän suostumuksen merkintä säilytetään {months} kuukautta viimeisimmästä suostumuksestasi, minkä jälkeen se poistetaan automaattisesti. Suostumuksen peruuttaminen poistaa sen aiemmin.",
 "consent.section2_title":
   "Minne ja millä oikeusperusteella tiedot siirretään?",
 "consent.recipients":
@@ -116,7 +118,7 @@ export const translations = {
   "Tekniset lokit (IP/UA/URL) — oikeutetut edut (Art. 6(1)(f)) — turvallisuus ja virheenkorjaus.",
 "consent.section3_title": "Oikeutesi",
 "consent.rights1":
-  "Voit peruuttaa suostumuksen widget-asetuksissa milloin tahansa; tämä ei vaikuta käsittelyn laillisuuteen ennen peruutusta.",
+  "Voit peruuttaa suostumuksesi milloin tahansa widgetin paneelista ”Tietosuoja ja tiedot” — sama toiminto poistaa myös suostumusmerkintäsi palvelimiltamme. Tämä ei vaikuta ennen peruutusta tapahtuneen käsittelyn lainmukaisuuteen.",
 "consent.rights2":
   "Suostumuksen peruuttamisen lisäksi sinulla on oikeus pyytää pääsyä tai järjestelmiin tallennettujen tietojesi poistoa (tekniset lokit, kustannusmittarit) verkkosivuston omistajan kautta. Täydelliset tiedot <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Tietosuojakäytännössä</a>.",
 "consent.rights3":
@@ -143,10 +145,10 @@ export const translations = {
 "privacy.policy_version": "Käytännön versio",
 "privacy.usage_count": "Käyttökerrat",
 "privacy.no_data": "Suostumustietoja ei löytynyt tältä laitteelta.",
-"privacy.delete_title": "Poista tietoni",
+"privacy.delete_title": "Peruuta suostumus ja poista tietoni",
 "privacy.delete_description": "Tämä poistaa pysyvästi kaikki suostumustietosi palvelimiltamme ja tyhjentää paikalliset tiedot. Tätä toimintoa ei voi kumota.",
 "privacy.delete_confirm": "Ymmärrän, että tämä on pysyvää",
-"privacy.delete_button": "Poista tietoni",
+"privacy.delete_button": "Peruuta suostumus ja poista tietoni",
 "privacy.deleting": "Poistetaan...",
 "privacy.delete_success": "Kaikki tietosi on poistettu onnistuneesti.",
 "privacy.delete_error": "Tietojen poistaminen epäonnistui. Yritä uudelleen tai ota yhteyttä info@webappski.com.",

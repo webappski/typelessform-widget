@@ -106,7 +106,7 @@ export const translations = {
 // Section 1: What data we process
 "consent.section1_title": "What data do we process?",
 "consent.data1":
-  "Voice recording. Audio file sent to OpenAI Whisper via our server for transcription. File is not saved on server after processing.",
+  "Voice recording. Audio file sent to OpenAI via our server for transcription. File is not saved on server after processing.",
 "consent.data2":
   "Voice transcript (text). Sent to OpenAI GPT for form filling. We do not store the transcript on our servers; it is processed in memory and discarded after the response. We log only technical metadata (length, language, duration). Important: OpenAI may store request data for up to 30 days to prevent abuse; early deletion at OpenAI is not available; data is not used for model training.",
 "consent.data3":
@@ -117,6 +117,8 @@ export const translations = {
   "Browser User-Agent. Used locally and by our infrastructure (compatibility/security), NOT sent to OpenAI.",
 "consent.data6":
   "IP address. Logged by Google Cloud/Firebase infrastructure for security (up to 30 days), NOT sent to OpenAI.",
+"consent.retention":
+  "How long we keep your consent record. The record of this consent is stored for {months} months from your most recent consent, then deleted automatically. Withdrawing consent deletes it sooner.",
 
 // Section 2: Where and on what basis
 "consent.section2_title":
@@ -133,7 +135,7 @@ export const translations = {
 // Section 3: Your rights
 "consent.section3_title": "Your rights",
 "consent.rights1":
-  "You can withdraw consent in widget settings at any time; this does not affect the lawfulness of processing before withdrawal.",
+  "You can withdraw consent at any time in the widget's \"Privacy & Data\" panel — the same action also deletes your consent records from our servers. This does not affect the lawfulness of processing before withdrawal.",
 "consent.rights2":
   "In addition to withdrawing consent, you have the right to request access or deletion of your data stored in our systems (technical logs and usage metrics) via the website owner. Full details in <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Privacy Policy</a>.",
 "consent.rights3":
@@ -162,10 +164,10 @@ export const translations = {
 "privacy.policy_version": "Policy version",
 "privacy.usage_count": "Usage count",
 "privacy.no_data": "No consent data found on this device.",
-"privacy.delete_title": "Delete My Data",
+"privacy.delete_title": "Withdraw consent & delete my data",
 "privacy.delete_description": "This will permanently delete all your consent records from our servers and clear local data. This action cannot be undone.",
 "privacy.delete_confirm": "I understand this is permanent",
-"privacy.delete_button": "Delete My Data",
+"privacy.delete_button": "Withdraw consent & delete my data",
 "privacy.deleting": "Deleting...",
 "privacy.delete_success": "All your data has been deleted successfully.",
 "privacy.delete_error": "Failed to delete data. Please try again or contact info@webappski.com.",

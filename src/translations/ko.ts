@@ -95,7 +95,7 @@ export const translations = {
 "consent.full_details_title": "전체 세부정보 읽기",
 "consent.section1_title": "어떤 데이터를 처리합니까?",
 "consent.data1":
-  "음성 녹음. 오디오 파일이 전사를 위해 당사 서버를 통해 OpenAI Whisper로 전송됩니다. 파일은 처리 후 서버에 저장되지 않습니다.",
+  "음성 녹음. 오디오 파일이 전사를 위해 당사 서버를 통해 OpenAI로 전송됩니다. 파일은 처리 후 서버에 저장되지 않습니다.",
 "consent.data2":
   "음성 전사(텍스트). 양식 작성을 위해 OpenAI GPT로 전송됩니다. 기본적으로 시스템에 전사를 저장하지 않습니다. 기술 로그에는 메타데이터(텍스트 길이, 언어, 기간)만 저장합니다. 중요: OpenAI는 남용 방지를 위해 최대 30일간 요청 데이터를 저장할 수 있습니다. OpenAI에서 조기 삭제는 불가능합니다. 데이터는 모델 훈련에 사용되지 않습니다.",
 "consent.data3":
@@ -106,6 +106,8 @@ export const translations = {
   "브라우저 User-Agent. 로컬 및 당사 인프라에서 사용됩니다(호환성/보안). OpenAI로 전송되지 않습니다.",
 "consent.data6":
   "IP 주소. Google Cloud/Firebase 인프라에서 보안을 위해 기록됩니다(최대 30일). OpenAI로 전송되지 않습니다.",
+"consent.retention":
+  "동의 기록의 보관 기간. 이 동의 기록은 가장 최근 동의일로부터 {months}개월 동안 보관된 후 자동으로 삭제됩니다. 동의를 철회하면 그보다 먼저 삭제됩니다.",
 "consent.section2_title": "어디로, 어떤 법적 근거로 데이터가 전송됩니까?",
 "consent.recipients":
   "수신자. OpenAI(미국) — 오디오/텍스트 처리; Google Cloud/Firebase(EU/폴란드) — 호스팅 및 보안 로그. 데이터는 모델 훈련에 사용되지 않습니다.",
@@ -117,7 +119,7 @@ export const translations = {
   "기술 로그(IP/UA/URL) — 정당한 이익(제6조 제1항 f호) — 보안 및 디버깅.",
 "consent.section3_title": "귀하의 권리",
 "consent.rights1":
-  "위젯 설정에서 언제든지 동의를 철회할 수 있습니다. 이는 철회 전 처리의 합법성에 영향을 미치지 않습니다.",
+  "위젯의 ‘개인정보 및 데이터’ 패널에서 언제든지 동의를 철회할 수 있으며, 같은 작업으로 당사 서버의 동의 기록도 삭제됩니다. 이는 철회 이전 처리의 적법성에 영향을 미치지 않습니다.",
 "consent.rights2":
   "동의 철회 외에도 웹사이트 소유자를 통해 당사 시스템에 저장된 데이터(기술 로그, 비용 메트릭)에 대한 접근 또는 삭제를 요청할 권리가 있습니다. <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>개인정보 보호정책</a>의 전체 세부정보를 참조하세요.",
 "consent.rights3":
@@ -143,10 +145,10 @@ export const translations = {
 "privacy.policy_version": "정책 버전",
 "privacy.usage_count": "사용 횟수",
 "privacy.no_data": "이 기기에서 동의 데이터를 찾을 수 없습니다.",
-"privacy.delete_title": "내 데이터 삭제",
+"privacy.delete_title": "동의 철회 및 내 데이터 삭제",
 "privacy.delete_description": "이렇게 하면 서버에서 모든 동의 기록이 영구적으로 삭제되고 로컬 데이터가 지워집니다. 이 작업은 취소할 수 없습니다.",
 "privacy.delete_confirm": "이것이 영구적임을 이해합니다",
-"privacy.delete_button": "내 데이터 삭제",
+"privacy.delete_button": "동의 철회 및 내 데이터 삭제",
 "privacy.deleting": "삭제 중...",
 "privacy.delete_success": "모든 데이터가 성공적으로 삭제되었습니다.",
 "privacy.delete_error": "데이터 삭제에 실패했습니다. 다시 시도하거나 info@webappski.com으로 문의하세요.",

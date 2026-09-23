@@ -95,7 +95,7 @@ export const translations = {
 "consent.full_details_title": "Volledige Details Lezen",
 "consent.section1_title": "Welke gegevens verwerken we?",
 "consent.data1":
-  "Spraakopname. Audiobestand verzonden naar OpenAI Whisper via onze server voor transcriptie. Het bestand wordt niet op de server opgeslagen na verwerking.",
+  "Spraakopname. Audiobestand verzonden naar OpenAI via onze server voor transcriptie. Het bestand wordt niet op de server opgeslagen na verwerking.",
 "consent.data2":
   "Spraaktranscriptie (tekst). Verzonden naar OpenAI GPT voor het invullen van formulieren. Standaard slaan we de transcriptie niet op in onze systemen; in technische logboeken slaan we alleen metadata op (tekstlengte, taal, duur). Belangrijk: OpenAI kan verzoekgegevens tot 30 dagen bewaren om misbruik te voorkomen; vervroegde verwijdering bij OpenAI is niet beschikbaar; gegevens worden niet gebruikt voor modeltraining.",
 "consent.data3":
@@ -106,6 +106,8 @@ export const translations = {
   "Browser User-Agent. Lokaal gebruikt en door onze infrastructuur (compatibiliteit/beveiliging), NIET verzonden naar OpenAI.",
 "consent.data6":
   "IP-adres. Gelogd door Google Cloud/Firebase-infrastructuur voor beveiliging (tot 30 dagen), NIET verzonden naar OpenAI.",
+"consent.retention":
+  "Hoe lang we de registratie van uw toestemming bewaren. De registratie van deze toestemming wordt {months} maanden bewaard vanaf uw meest recente toestemming en daarna automatisch verwijderd. Als u uw toestemming intrekt, wordt deze eerder verwijderd.",
 "consent.section2_title":
   "Waarheen en op welke rechtsgrondslag worden gegevens overgedragen?",
 "consent.recipients":
@@ -118,7 +120,7 @@ export const translations = {
   "Technische logboeken (IP/UA/URL) — gerechtvaardigde belangen (Art. 6(1)(f)) — beveiliging en debugging.",
 "consent.section3_title": "Uw rechten",
 "consent.rights1":
-  "U kunt uw toestemming op elk moment intrekken in de widget-instellingen; dit heeft geen invloed op de rechtmatigheid van de verwerking vóór intrekking.",
+  "U kunt uw toestemming op elk moment intrekken in het paneel „Privacy & Gegevens” van de widget — dezelfde handeling verwijdert ook uw toestemmingsregistraties van onze servers. Dit heeft geen invloed op de rechtmatigheid van de verwerking vóór de intrekking.",
 "consent.rights2":
   "Naast het intrekken van toestemming heeft u het recht om toegang of verwijdering van uw gegevens opgeslagen in onze systemen (technische logboeken, kostenstatistieken) aan te vragen via de website-eigenaar. Volledige details in het <a href='https://webappski.com/en/legal/product-privacy' target='_blank' rel='noopener noreferrer'>Privacybeleid</a>.",
 "consent.rights3":
@@ -145,10 +147,10 @@ export const translations = {
 "privacy.policy_version": "Beleidsversie",
 "privacy.usage_count": "Aantal keer gebruikt",
 "privacy.no_data": "Geen toestemmingsgegevens gevonden op dit apparaat.",
-"privacy.delete_title": "Mijn gegevens verwijderen",
+"privacy.delete_title": "Toestemming intrekken en mijn gegevens verwijderen",
 "privacy.delete_description": "Dit verwijdert permanent al uw toestemmingsrecords van onze servers en wist lokale gegevens. Deze actie kan niet ongedaan worden gemaakt.",
 "privacy.delete_confirm": "Ik begrijp dat dit permanent is",
-"privacy.delete_button": "Mijn gegevens verwijderen",
+"privacy.delete_button": "Toestemming intrekken en mijn gegevens verwijderen",
 "privacy.deleting": "Verwijderen...",
 "privacy.delete_success": "Al uw gegevens zijn succesvol verwijderd.",
 "privacy.delete_error": "Gegevens konden niet worden verwijderd. Probeer opnieuw of neem contact op via info@webappski.com.",
