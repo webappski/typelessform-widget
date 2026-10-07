@@ -410,12 +410,12 @@ Dashboard → Rules → Transform Rules → Response Header:
 
 ## Pricing
 
-| Plan           | Price    | Form Fills       | Status    |
-| -------------- | -------- | ---------------- | --------- |
-| Pilot          | Free     | 200 (lifetime)   | Available |
-| Starter        | $29/mo   | 800/mo           | Waitlist  |
-| Professional   | $99/mo   | 3,000/mo         | Waitlist  |
-| Enterprise     | $199/mo  | 10,000/mo        | Waitlist  |
+| Plan           | Price    | Form Fills       | Status               |
+| -------------- | -------- | ---------------- | -------------------- |
+| Pilot          | Free     | 200 (lifetime)   | Available            |
+| Starter        | €29/mo   | 800/mo           | Purchase via invoice |
+| Professional   | €99/mo   | 3,000/mo         | Purchase via invoice |
+| Enterprise     | €199/mo  | 10,000/mo        | Purchase via invoice |
 
 Get started with the free Pilot plan at the [developer dashboard](https://webappski.com/en/portal).
 
@@ -447,7 +447,7 @@ We measure it on our own corpus rather than quote a vendor benchmark. Given a co
 
 ### How much does it cost?
 
-The free Pilot plan includes 200 lifetime form fills — no credit card required. Paid plans start at $29/month for 800 fills/month. See [Pricing](#pricing).
+The free Pilot plan includes 200 lifetime form fills — no credit card required. Paid plans start at €29/month for 800 fills/month. See [Pricing](#pricing).
 
 ## Support & Community
 

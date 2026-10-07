@@ -1,6 +1,6 @@
 {
   "name": "typelessform-widget",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "Voice input widget for HTML forms. Users speak once — AI fills all fields at once. Drop-in for React, Vue, Angular, Next.js, WordPress. 25 interface languages. Given a correct transcript, 98.5% of spoken fields are filled correctly — our own frozen 27-utterance corpus, 195 field observations, measured 2026-09-21. Method: https://typelessform.com/blog/how-accurate-is-voice-form-filling-2026/",
   "private": false,
   "type": "module",
