@@ -5,6 +5,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.11] - 2026-10-11
+
+### Fixed
+- With `load-fonts` the widget font did not load: the files were requested from
+  `/fonts`, a path the host has never served, and now come from
+  `/widget-build/fonts`, where the files and their CORS header live.
+- The version stamped into consent receipts and error reports is the package
+  version again (1.0.10 carried "1.0.9" inside; the code of 1.0.10 and 1.0.9 is the same).
+
 ## [1.0.10] - 2026-10-07
 
 ### Changed
