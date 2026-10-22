@@ -9,15 +9,52 @@ function findLabelFor(element: HTMLElement, form: HTMLElement): string | null {
   return (labelEl && labelEl.textContent) ? labelEl.textContent.trim() : null;
 }
 
-/** Try parent <label>, excluding the element's own text. */
-function findParentLabel(element: HTMLElement): string | null {
-  const parent = element.parentElement;
-  if (!parent || parent.tagName.toLowerCase() !== 'label' || !parent.textContent) { return null; }
+const CONTROL_SELECTOR = 'input:not([type="hidden"]), select, textarea';
+
+/** The label is the control's direct parent: its text without the control's own. */
+function directParentLabelText(label: HTMLElement, element: HTMLElement): string | null {
   let textContent = '';
-  Array.from(parent.childNodes).forEach(node => {
+  Array.from(label.childNodes).forEach(node => {
     if (node !== element) { textContent += node.textContent || ''; }
   });
   return textContent.trim() || null;
+}
+
+/**
+ * Try the enclosing <label>, excluding the control's own text.
+ *
+ * The label need not be the direct parent: Contact Form 7 draws
+ * `<label> Your name<br><span class="wpcf7-form-control-wrap"><input></span></label>`,
+ * and looking only at the parent sent every CF7 field on to the universal search,
+ * which found the FIRST label of the form for all of them. Used only when the label
+ * holds this one control — a label around several controls names none of them.
+ */
+function findParentLabel(element: HTMLElement): string | null {
+  const parent = element.parentElement;
+  if (parent && parent.tagName === 'LABEL') { return directParentLabelText(parent, element); }
+  const label = element.closest('label');
+  if (!label) { return null; }
+  const controls = Array.from(label.querySelectorAll(CONTROL_SELECTOR));
+  if (controls.some(c => c !== element && !element.contains(c))) { return null; }
+  const copy = label.cloneNode(true) as HTMLElement;
+  // option texts of a select and CF7's validation tip are not the label
+  copy.querySelectorAll(`${CONTROL_SELECTOR}, .wpcf7-not-valid-tip`).forEach(n => n.remove());
+  return copy.textContent?.replace(/\s+/g, ' ').trim() || null;
+}
+
+/**
+ * The text right after a radio or checkbox in the same wrapper: `<input><span>Label</span>`.
+ * Contact Form 7 draws every option this way (span.wpcf7-list-item-label) without a
+ * <label>; the universal search walks UP the DOM and named every CF7 option after the
+ * form's first field.
+ */
+function findFollowingOptionLabel(element: HTMLElement): string | null {
+  if (!(element instanceof HTMLInputElement) || (element.type !== 'radio' && element.type !== 'checkbox')) { return null; }
+  const parent = element.parentElement;
+  if (!parent || parent.querySelectorAll(CONTROL_SELECTOR).length !== 1) { return null; }
+  const next = element.nextElementSibling;
+  if (!next || !next.textContent?.trim()) { return null; }
+  return next.textContent.replace(/\s+/g, ' ').trim();
 }
 
 /** Try preceding sibling or wrapper's preceding sibling. */
@@ -48,6 +85,7 @@ function findWrapperSiblingLabel(element: HTMLElement, form: HTMLElement): strin
 export function findLabelText(element: HTMLElement, form: HTMLElement): string | null {
   return findLabelFor(element, form)
     || findParentLabel(element)
+    || findFollowingOptionLabel(element)
     || findUniversalLabel(element)
     || findSiblingLabel(element, form);
 }

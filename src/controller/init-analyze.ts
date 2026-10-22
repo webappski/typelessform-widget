@@ -174,12 +174,38 @@ export async function fetchInitDataImpl(payload: Record<string, unknown>, signal
   return await resp.json() as InitAnalyzeV2Data;
 }
 
+/** Field types a voice answer can fill without a badge: one native choice among listed options. */
+const FILLABLE_CHOICE_TYPES = new Set(['select-one', 'radio', 'checkboxgroup']);
+
+/**
+ * The fields with options that may be filled although they get no badge.
+ *
+ * The backend keeps every field with options off the badge list (Guardrail 3,
+ * functions/src/utils/guardrails.ts) — a UX choice about what to show before the
+ * visitor speaks, not a privacy verdict. The widget used the badge list as the list
+ * of fields it may fill, so no select, radio group or checkbox group was ever filled.
+ * The privacy verdict is `sensitiveFlags`: one entry per sent
+ * field, in the order sent (handler.ts → field-pipeline.ts, finalSensitive). A field
+ * is added only when its own entry is explicitly false and it is not data-ai-private.
+ * A lone checkbox is never added: it is a consent, terms or opt-in box — the visitor
+ * ticks it, never the widget. A response whose flags do not line up with the sent
+ * fields adds nothing.
+ */
+export function fillableChoiceNames(fields: FieldDescriptor[], data: InitAnalyzeV2Data): string[] {
+  const flags = data?.sensitiveFlags;
+  if (!Array.isArray(flags) || flags.length !== fields.length) { return []; }
+  return fields
+    .filter((f, i) => flags[i] === false && !f.isPrivate && FILLABLE_CHOICE_TYPES.has(f.type))
+    .map(f => f.name);
+}
+
 /** Full requestInitAnalyzeV2 flow */
 export async function requestInitAnalyzeV2Impl(component: TypelessFormHost, fields: FieldDescriptor[], signal?: AbortSignal): Promise<InitAnalyzeV2Data> {
   window.performance?.mark('aifc_init_start');
   const formId = component.currentFormId || component.selectActiveForm()?.id || 'unknown';
   const payload = buildInitPayloadImpl(component, fields, formId);
   const data = await fetchInitDataImpl(payload, signal);
+  data.fillableChoiceNames = fillableChoiceNames(fields, data);
 
   storeInitResponseImpl(component, data, formId);
   storeDebugInfoImpl(payload, data);

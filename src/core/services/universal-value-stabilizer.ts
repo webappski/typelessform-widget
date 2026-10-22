@@ -7,6 +7,9 @@
  * One session per form; independent lifecycle; safe for multi-widget scenarios.
  */
 
+import { FillLedger } from './fill-ledger.js';
+import { asWidgetWrite } from '../../lib/widget-write.js';
+
 type AnyInput = HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
 
 // Native property setters (cached once per module load)
@@ -40,24 +43,42 @@ function indexInForm(el: HTMLElement, targetForm: HTMLFormElement): number {
   return controls.indexOf(el);
 }
 
-/** Write value to a select element */
-function writeSelect(el: HTMLSelectElement, v: string | boolean): void {
+/**
+ * Write value to a select element. A select that no longer has the option (a dependent list
+ * the page rebuilt without it) is not written: it used to get a `change` with nothing chosen.
+ */
+function writeSelect(el: HTMLSelectElement, v: string | boolean): boolean {
   const target = String(v).toLowerCase();
   const match = [...el.options].find(
     (o) => o.value.toLowerCase() === target || o.text.toLowerCase() === target
   );
-  if (match) {el.value = match.value;}
+  if (!match) {return false;}
+  el.value = match.value;
   el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
+  return true;
+}
+
+/**
+ * Whether a checkbox or radio should be checked. The applier enqueues the checked
+ * state itself (a boolean) for both; a string still means "the option with this value".
+ */
+function shouldBeChecked(el: HTMLInputElement, v: string | boolean): boolean {
+  if (typeof v === 'boolean') {return v;}
+  return el.type === 'checkbox' ? !!v : el.value === v;
+}
+
+function isCheckable(el: AnyInput): el is HTMLInputElement {
+  return el instanceof HTMLInputElement && (el.type === 'checkbox' || el.type === 'radio');
 }
 
 /** Write value to a checkbox or radio element */
-function writeCheckableInput(el: HTMLInputElement, v: string | boolean): void {
-  const shouldBeChecked = el.type === 'checkbox' ? !!v : el.value === String(v);
-  if (el.checked !== shouldBeChecked) {el.click();}
+function writeCheckableInput(el: HTMLInputElement, v: string | boolean): boolean {
+  if (el.checked !== shouldBeChecked(el, v)) {asWidgetWrite(() => el.click());}
+  return true;
 }
 
 /** Set native value on text input/textarea and dispatch events */
-function writeTextInput(el: HTMLInputElement | HTMLTextAreaElement, v: string | boolean): void {
+function writeTextInput(el: HTMLInputElement | HTMLTextAreaElement, v: string | boolean): boolean {
   const str = String(v);
   if (el instanceof HTMLInputElement) {
     inputValueSetter ? inputValueSetter.call(el, str) : (el.value = str);
@@ -73,15 +94,17 @@ function writeTextInput(el: HTMLInputElement | HTMLTextAreaElement, v: string | 
     el.dispatchEvent(new Event('input', { bubbles: true, composed: true }));
   }
   el.dispatchEvent(new Event('change', { bubbles: true, composed: true }));
+  return true;
 }
 
-/** Low-level write - no framework hooks, just native property + events */
-function writeOnceImpl(el: AnyInput, v: string | boolean): void {
+/**
+ * Low-level write - no framework hooks, just native property + events.
+ * @returns false when there is nothing to write: a select no longer has the option.
+ */
+function writeOnceImpl(el: AnyInput, v: string | boolean): boolean {
   if (el instanceof HTMLSelectElement) {return writeSelect(el, v);}
-  if (el instanceof HTMLInputElement && (el.type === 'checkbox' || el.type === 'radio')) {
-    return writeCheckableInput(el, v);
-  }
-  writeTextInput(el, v);
+  if (isCheckable(el)) {return writeCheckableInput(el, v);}
+  return writeTextInput(el, v);
 }
 
 /** Check if an element's current value matches the desired value */
@@ -90,6 +113,10 @@ function isCommitted(el: AnyInput, desired: string | boolean): boolean {
     const d = String(desired).toLowerCase();
     return el.value.toLowerCase() === d || (el.selectedOptions[0]?.text || '').toLowerCase() === d;
   }
+  // A checkbox or radio is committed when its checked state is the desired one. Compared
+  // by .value, as text fields are, it never matched ("Newsletter" !== "true"), the session
+  // kept rewriting it every 2 s and the widget's modal never closed.
+  if (isCheckable(el)) {return el.checked === shouldBeChecked(el, desired);}
   return (el as HTMLInputElement | HTMLTextAreaElement).value === String(desired);
 }
 
@@ -167,9 +194,13 @@ function createFormObserver(form: HTMLFormElement, tick: { scheduled: boolean })
   return observer;
 }
 
-/** Create a new stabilizer session bound to a form */
+/**
+ * Create a new stabilizer session bound to a form. A rewrite is made only while the fill
+ * ledger allows one (fill-ledger.ts): the field is not the visitor's since the fill and still
+ * has rewrites left. Then the session lets the field go, as the page holds it.
+ */
 export function createStabilizerSession(
-  form: HTMLFormElement, slotsMs: number[] = [16, 64, 160, 400, 800, 2000]
+  form: HTMLFormElement, slotsMs: number[] = [16, 64, 160, 400, 800, 2000], ledger: FillLedger = new FillLedger()
 ): IStabilizerSession {
   let lastActivityAt = 0;
   let pendingCount = 0;
@@ -185,7 +216,7 @@ export function createStabilizerSession(
       if (p.cancelled) { done(el); return; }
       const bound = rebindWithinForm(el, form);
       if (!bound || isCommitted(bound, p.desired)) { done(el); return; }
-      writeOnceImpl(bound, p.desired);
+      if (!ledger.takeRewrite(bound, p.logicalName) || !asWidgetWrite(() => writeOnceImpl(bound, p.desired))) { done(el); return; }
       schedule(bound, p);
     }, slotsMs[Math.min(p.tries++, slotsMs.length - 1)]);
   };

@@ -1,7 +1,6 @@
 // Lifecycle setup functions - extracted from lifecycle.ts
-// Event handlers, reapply logic, proactive checks, navigation, visibility
+// Event handlers, reapply logic, proactive checks, visibility (navigation: lifecycle-navigation.ts)
 
-import { setupNavigationInterceptor } from '../utils/navigation-interceptor';
 import type { TypelessFormHost } from '../types/widget-host.js';
 import type { FieldDescriptor } from '../form-scanner/index.js';
 import type { MultiFormatValue } from '../llm-client.js';
@@ -15,8 +14,12 @@ import {
   ensureFreshFieldElementsMap,
 } from './lifecycle-helpers.ts';
 import { setupFormVisibilityObserver } from './lifecycle-observers.ts';
+import { choiceHolds } from '../core/services/form-value-applier/index.ts';
 
 // ── Setup scroll/resize/orientation handlers ──
+// A scroll in the 10 s after a fill checks the form against the answer. The 10 s count from
+// the fill (lastApplyTimestamp is set only by FormFillerController): a write the check makes
+// does not move them, or a visitor who keeps scrolling keeps the check running for good.
 export function setupEventHandlers(component: TypelessFormHost): void {
   component.scrollHandler = component.throttle(() => {
     component.updateActiveForm();
@@ -70,15 +73,22 @@ export function setupCheckAndReapply(component: TypelessFormHost): void {
   };
 }
 
+/**
+ * Whether a field no longer shows its answer. Radios, checkboxes and selects are read as the
+ * applier writes them (choiceHolds: the set of options ticked, the option chosen); read as
+ * "true"/"false" against the answer, every group looked changed. Other fields by their value.
+ */
+function fieldDiffers(element: Element, expectedValue: AutofillMap[string]): boolean {
+  const holds = choiceHolds(element, expectedValue);
+  if (holds !== null) { return !holds; }
+  return readCurrentDOMValue(element) !== normalizeExpectedValue(expectedValue, element as HTMLInputElement | HTMLTextAreaElement);
+}
+
 function countMismatches(component: TypelessFormHost, autofill: AutofillMap): number {
   let count = 0;
   for (const [name, expectedValue] of Object.entries(autofill)) {
     const element = getLiveElement(component, name);
-    if (!element) { continue; }
-
-    const currentValue = readCurrentDOMValue(element);
-    const expected = normalizeExpectedValue(expectedValue, element as HTMLInputElement | HTMLTextAreaElement);
-    if (currentValue !== expected) { count++; }
+    if (element && fieldDiffers(element, expectedValue)) { count++; }
   }
   return count;
 }
@@ -86,8 +96,7 @@ function countMismatches(component: TypelessFormHost, autofill: AutofillMap): nu
 function reapplyAutofill(component: TypelessFormHost, autofill: AutofillMap): void {
   const activeForm = component.selectActiveForm();
   if (activeForm && component.formValueApplier) {
-    component.formValueApplier.applyValues(autofill, activeForm);
-    component.lastApplyTimestamp = performance.now();
+    component.formValueApplier.reapplyValues(autofill, activeForm);
   }
 }
 
@@ -143,8 +152,7 @@ function needsProactiveReapply(component: TypelessFormHost, autofill: AutofillMa
   for (const [name, expectedValue] of Object.entries(autofill)) {
     const el = component.fieldElementsMap?.get(name);
     if (!el || !el.isConnected) { return true; }
-    const currentValue = (el as unknown as HTMLInputElement).value ?? '';
-    if (currentValue !== String(expectedValue)) { return true; }
+    if (fieldDiffers(el, expectedValue)) { return true; }
   }
   return false;
 }
@@ -167,82 +175,8 @@ function doProactiveReapply(
     scannedFields: component.scannedFields
   });
 
-  component.formValueApplier!.applyValues(autofill, activeForm);
+  component.formValueApplier!.reapplyValues(autofill, activeForm);
   return 'reapplied';
-}
-
-// ── Setup SPA navigation handler ──
-export function setupNavigationHandler(component: TypelessFormHost): void {
-  component.navigationHandler = () => {
-    component.hasEverBeenVisibleOnThisPage = false;
-    component.userClosedManually = false;
-    component.noFormsMessage = false;
-
-    component.visibleForms.clear();
-    component.scanAllForms();
-
-    updateSafeInsetsIfChanged(component);
-    component.findSafePosition();
-    component.evaluateWidgetVisibility();
-  };
-
-  component.navigationRetryTimers = [];
-
-  component.navigationCleanup = setupNavigationInterceptor(() => {
-    clearNavigationTimers(component);
-    component.navigationHandler!();
-    scheduleVisibilityReevaluations(component);
-    scheduleAutofillReapply(component);
-  });
-}
-
-function clearNavigationTimers(component: TypelessFormHost): void {
-  if (Array.isArray(component.navigationRetryTimers)) {
-    component.navigationRetryTimers.forEach((id: number) => clearTimeout(id));
-  }
-  component.navigationRetryTimers = [];
-}
-
-function scheduleVisibilityReevaluations(component: TypelessFormHost): void {
-  const reevaluateVisibility = () => {
-    component.scanAllForms();
-    component.evaluateWidgetVisibility();
-  };
-
-  for (const ms of [100, 300, 600]) {
-    const timerId = window.setTimeout(reevaluateVisibility, ms);
-    component.navigationRetryTimers.push(timerId);
-  }
-}
-
-function scheduleAutofillReapply(component: TypelessFormHost): void {
-  const autofill = component.lastLLMResponse?.autofill;
-  if (!autofill || Object.keys(autofill).length === 0) { return; }
-
-  for (const ms of [0, 200, 500, 1000]) {
-    const timerId = window.setTimeout(() => reapplyAfterNavigation(component, autofill), ms);
-    component.navigationRetryTimers.push(timerId);
-  }
-}
-
-function reapplyAfterNavigation(component: TypelessFormHost, autofill: AutofillMap): void {
-  if (!component.formValueApplier) { return; }
-  if (component.formValueApplier.hasActiveWork?.()) { return; }
-
-  const activeForm = component.selectActiveForm?.();
-  if (!activeForm) { return; }
-
-  const savedNames = Object.keys(autofill);
-  const currentNames = new Set((component.scannedFields || []).map((f: FieldDescriptor) => f.name));
-  if (!savedNames.every(name => currentNames.has(name))) { return; }
-
-  component.formValueApplier.updateConfig({
-    safeFieldNames: component.safeFieldNames,
-    fieldElementsMap: component.fieldElementsMap,
-    scannedFields: component.scannedFields
-  });
-
-  component.formValueApplier.applyValues(autofill, activeForm);
 }
 
 // ── Setup global focus handler ──

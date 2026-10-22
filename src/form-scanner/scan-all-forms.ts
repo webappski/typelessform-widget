@@ -1,5 +1,6 @@
 import type { FieldDescriptor } from './types.js';
 import { findDeepNestedInput, isElementHidden } from './utils.js';
+import { isMarkedPrivate } from '../lib/private-marker.js';
 import { getElementType } from './element-type-detector.js';
 import { getElementName } from './element-name-resolver.js';
 import { extractValue } from './value-extractor.js';
@@ -54,7 +55,7 @@ function getPlaceholder(el: HTMLElement): string | undefined {
 function getFieldFlags(el: HTMLElement, type: string) {
   return {
     required: el.hasAttribute('required') || el.getAttribute('aria-required') === 'true',
-    isPrivate: el.dataset.aiPrivate !== undefined || el.getAttribute('data-private') === 'true' || type === 'password',
+    isPrivate: isMarkedPrivate(el, type),
     explicitLabel: el.dataset.aiLabel || el.getAttribute('data-ai-label') || undefined,
     ariaLabel: el.getAttribute('aria-label') || undefined,
   };

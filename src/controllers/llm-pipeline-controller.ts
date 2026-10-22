@@ -102,7 +102,10 @@ export class LLMPipelineController implements ReactiveController {
   async #fetchLLMResponse(text: string, fieldsForLLM: FieldDescriptor[]): Promise<LLMResponse> {
     const badgesResult = await this.#host.generateSafeBadges(fieldsForLLM);
     const safeFields = badgesResult?.safeFields ?? [];
-    this.#host.safeFieldNames = safeFields.map((f) => f.name);
+    // Badges are what the visitor is shown before speaking; the fields the widget may
+    // fill also include the choice fields the backend keeps off that list.
+    const choiceNames = this.#host.__initAnalyzeV2?.fillableChoiceNames ?? [];
+    this.#host.safeFieldNames = [...new Set([...safeFields.map((f) => f.name), ...choiceNames])];
 
     const simulateEmptyResponse = (window as unknown as { AFC_TEST_FLAGS?: AifcTestFlags }).AFC_TEST_FLAGS?.simulateEmptyLLMResponse === true;
 

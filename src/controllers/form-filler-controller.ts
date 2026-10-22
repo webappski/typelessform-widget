@@ -10,6 +10,7 @@ import type { ReactiveController } from 'lit';
 import type { TypelessFormHost } from '../types/widget-host.js';
 import type { MultiFormatValue } from '../llm-client.js';
 import { buildFieldElementsMap } from '../form/postprocess.js';
+import { isMarkedPrivate } from '../lib/private-marker.js';
 
 export class FormFillerController implements ReactiveController {
   #host: TypelessFormHost;
@@ -176,11 +177,8 @@ export class FormFillerController implements ReactiveController {
   }
 
   #shouldSkipElement(element: Element | RadioNodeList, name: string): boolean {
-    if (element instanceof HTMLElement && element.dataset.aiPrivate === 'true') { return true; }
-    const fieldMeta = this.#host.scannedFields.find((f) => f.name === name);
-    if (fieldMeta?.isPrivate) { return true; }
-    if (element instanceof HTMLInputElement && element.type === 'password') { return true; }
-    return false;
+    if (isMarkedPrivate(element)) { return true; }
+    return !!this.#host.scannedFields.find((f) => f.name === name)?.isPrivate;
   }
 
   #applyValueToElement(element: Element | RadioNodeList, value: string | number | boolean | string[] | MultiFormatValue | undefined): void {

@@ -1,11 +1,13 @@
 import type { FieldDescriptor } from './types.js';
-import { isTranslationKey, collectStructuralMeta, isElementHidden } from './utils.js';
+import { isTranslationKey, collectStructuralMeta, isElementHidden, findCheckboxGroupContainer } from './utils.js';
+import { isMarkedPrivate } from '../lib/private-marker.js';
 import { getElementType, extractConstraints } from './element-type-detector.js';
 import { getElementName, getExplicitKey, makeCompositeKey } from './element-name-resolver.js';
 import { extractValue } from './value-extractor.js';
 import { findLabelText, findGroupLabelElement } from './label-finder.js';
 import { isInteractiveElement, isInternalFieldOfCompositeComponent } from './interactive-checker.js';
 import { detectSectionHeading } from './section-detector.js';
+import { choicesJsOptions } from './choices-js.js';
 
 export class FormScanner {
   private form: HTMLFormElement;
@@ -124,8 +126,7 @@ export class FormScanner {
     computedLabel: string | undefined; ariaLabel: string | undefined; explicitLabel: string | undefined;
   } {
     const required = element.hasAttribute('required') || element.getAttribute('aria-required') === 'true';
-    const isPrivate = element.dataset.aiPrivate !== undefined ||
-      element.getAttribute('data-private') === 'true' || type === 'password';
+    const isPrivate = isMarkedPrivate(element, type);
     const placeholder = FormScanner.getPlaceholder(element);
     const computedLabel = findLabelText(element, this.form) || undefined;
     const ariaLabel = (element.getAttribute('aria-label') || undefined) as string | undefined;
@@ -139,7 +140,7 @@ export class FormScanner {
   // ── Helper: Build radio group descriptor ──
   private buildRadioDescriptor(
     baseNameOrId: string, element: HTMLElement, elements: HTMLElement[],
-    ariaLabel: string | undefined
+    meta: ReturnType<FormScanner['extractFieldMeta']>
   ): FieldDescriptor | null {
     const radioGroup = elements.filter(
       el => el instanceof HTMLInputElement && el.type === 'radio' && (el as HTMLInputElement).name === baseNameOrId
@@ -165,9 +166,10 @@ export class FormScanner {
     return {
       name: baseNameOrId,
       label: groupLabel,
-      ariaLabel,
+      ariaLabel: meta.ariaLabel,
       type: 'radio',
       required: radioGroup.some(rb => rb.required),
+      isPrivate: meta.isPrivate || radioGroup.some(rb => isMarkedPrivate(rb)),
       options,
       value: radioGroup.find(rb => rb.checked)?.value,
       element: element,
@@ -179,9 +181,9 @@ export class FormScanner {
   // ── Helper: Build checkbox group descriptor ──
   private buildCheckboxGroupDescriptor(
     baseNameOrId: string, element: HTMLElement, checkboxGroupContainer: Element,
-    ariaLabel: string | undefined
+    meta: ReturnType<FormScanner['extractFieldMeta']>
   ): FieldDescriptor | null {
-    const checkboxGroup = Array.from(checkboxGroupContainer.querySelectorAll<HTMLInputElement>(`input[type="checkbox"][name="${baseNameOrId}"]`));
+    const checkboxGroup = Array.from(checkboxGroupContainer.querySelectorAll<HTMLInputElement>(`input[type="checkbox"][name="${CSS.escape(baseNameOrId)}"]`));
     if (checkboxGroup.length === 0) { return null; }
 
     let groupLabel = baseNameOrId;
@@ -202,9 +204,10 @@ export class FormScanner {
     return {
       name: baseNameOrId,
       label: groupLabel,
-      ariaLabel,
+      ariaLabel: meta.ariaLabel,
       type: 'checkboxgroup',
       required: checkboxGroup.some(cb => cb.required),
+      isPrivate: meta.isPrivate || checkboxGroup.some(cb => isMarkedPrivate(cb)),
       options,
       value: checkboxGroup.filter(cb => cb.checked).map(cb => cb.value || 'on'),
       element: element,
@@ -251,8 +254,8 @@ export class FormScanner {
   }
 
   /** Handle radio type fields. */
-  private handleRadio(baseNameOrId: string, element: HTMLElement, ariaLabel: string | undefined): void {
-    const desc = this.buildRadioDescriptor(baseNameOrId, element, this.ctx.elements, ariaLabel);
+  private handleRadio(baseNameOrId: string, element: HTMLElement, meta: ReturnType<FormScanner['extractFieldMeta']>): void {
+    const desc = this.buildRadioDescriptor(baseNameOrId, element, this.ctx.elements, meta);
     if (desc && !this.ctx.encounteredNames.has(baseNameOrId)) {
       this.ctx.fieldDescriptors.push(desc);
       this.ctx.encounteredNames.add(baseNameOrId);
@@ -262,14 +265,14 @@ export class FormScanner {
   /** Handle checkbox type fields. */
   private handleCheckbox(baseNameOrId: string, element: HTMLElement, meta: ReturnType<FormScanner['extractFieldMeta']>): void {
     if (this.ctx.encounteredNames.has(baseNameOrId)) { return; }
-    const groupContainer = element.closest('.feature-options, .choice-options');
+    const groupContainer = findCheckboxGroupContainer(this.form, baseNameOrId, element);
     if (groupContainer && baseNameOrId) {
-      const desc = this.buildCheckboxGroupDescriptor(baseNameOrId, element, groupContainer, meta.ariaLabel);
+      const desc = this.buildCheckboxGroupDescriptor(baseNameOrId, element, groupContainer, meta);
       if (desc) { this.ctx.fieldDescriptors.push(desc); this.ctx.encounteredNames.add(baseNameOrId); }
     } else if (!groupContainer) {
       this.ctx.fieldDescriptors.push({
         name: baseNameOrId, label: meta.computedLabel, ariaLabel: meta.ariaLabel,
-        type: 'checkbox', required: meta.required, value: extractValue(element),
+        type: 'checkbox', required: meta.required, isPrivate: meta.isPrivate, value: extractValue(element),
         element, tagName: element.tagName.toLowerCase(), ...extractConstraints(element)
       });
       this.ctx.encounteredNames.add(baseNameOrId);
@@ -279,13 +282,13 @@ export class FormScanner {
   /** Handle select type fields. */
   private handleSelect(baseNameOrId: string, element: HTMLElement, meta: ReturnType<FormScanner['extractFieldMeta']>): void {
     const selectElement = element as HTMLSelectElement;
-    const options = Array.from(selectElement.options).map(opt => ({
+    const options = choicesJsOptions(selectElement) ?? Array.from(selectElement.options).map(opt => ({
       value: opt.value,
       label: isTranslationKey(opt.text) ? opt.value : opt.text.trim()
     }));
     this.ctx.fieldDescriptors.push({
       name: baseNameOrId, label: meta.computedLabel, ariaLabel: meta.ariaLabel,
-      type: selectElement.type, required: meta.required, placeholder: meta.placeholder,
+      type: selectElement.type, required: meta.required, placeholder: meta.placeholder, isPrivate: meta.isPrivate,
       options, value: selectElement.value, element, tagName: element.tagName.toLowerCase(),
       ...extractConstraints(element)
     });
@@ -315,14 +318,14 @@ export class FormScanner {
   }
 
   /** Check if a radio/checkbox name was already encountered. */
-  private isAlreadyEncounteredGroupType(baseNameOrId: string, type: string, element: HTMLElement): boolean {
+  private isAlreadyEncounteredGroupType(baseNameOrId: string, type: string): boolean {
     if (!this.ctx.encounteredNames.has(baseNameOrId)) { return false; }
-    return type === 'radio' || (type === 'checkbox' && !element.closest('.feature-options,.choice-options'));
+    return type === 'radio' || type === 'checkbox';
   }
 
   /** Dispatch element to the appropriate type handler. */
   private dispatchElement(baseNameOrId: string, element: HTMLElement, type: string, meta: ReturnType<FormScanner['extractFieldMeta']>): void {
-    if (type === 'radio') { this.handleRadio(baseNameOrId, element, meta.ariaLabel); }
+    if (type === 'radio') { this.handleRadio(baseNameOrId, element, meta); }
     else if (type === 'checkbox') { this.handleCheckbox(baseNameOrId, element, meta); }
     else if (element.tagName.toLowerCase() === 'select') { this.handleSelect(baseNameOrId, element, meta); }
     else {
@@ -352,7 +355,7 @@ export class FormScanner {
       const type = getElementType(element);
       const explicitKey = getExplicitKey(element);
       if (this.shouldSkipDuplicate({ baseNameOrId, type, element, explicitKey })) { continue; }
-      if (this.isAlreadyEncounteredGroupType(baseNameOrId, type, element)) { continue; }
+      if (this.isAlreadyEncounteredGroupType(baseNameOrId, type)) { continue; }
       this.dispatchElement(baseNameOrId, element, type, this.extractFieldMeta(element, type));
     }
 

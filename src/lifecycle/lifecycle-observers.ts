@@ -35,7 +35,7 @@ function handleOpenModalReapply(component: TypelessFormHost, activeForm: HTMLFor
         scannedFields: component.scannedFields
       });
 
-      component.formValueApplier.applyValues(
+      component.formValueApplier.reapplyValues(
         component.lastLLMResponse.autofill,
         activeForm
       );

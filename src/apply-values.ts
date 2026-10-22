@@ -1,4 +1,5 @@
 import type { FieldDescriptor } from './form-scanner/index.js';
+import { isMarkedPrivate } from './lib/private-marker.js';
 
 /** Check if a control should be skipped (private or password) */
 function shouldSkipControl(
@@ -6,17 +7,10 @@ function shouldSkipControl(
   name: string,
   fieldsMetadata?: FieldDescriptor[]
 ): boolean {
-  if (control instanceof HTMLElement && control.dataset.aiPrivate === 'true') {
+  if (isMarkedPrivate(control)) {
     return true;
   }
-  if (fieldsMetadata) {
-    const fieldMeta = fieldsMetadata.find(f => f.name === name);
-    if (fieldMeta?.isPrivate) {return true;}
-  }
-  if (control instanceof HTMLInputElement && control.type === 'password') {
-    return true;
-  }
-  return false;
+  return !!fieldsMetadata?.find(f => f.name === name)?.isPrivate;
 }
 
 /** Apply value to a specific control based on its type */
@@ -69,7 +63,7 @@ function isGlobalFieldPrivate(
   formIndex: number,
   fieldsMeta: FieldDescriptor[]
 ): boolean {
-  if (element instanceof HTMLElement && element.dataset.aiPrivate === 'true') {return true;}
+  if (isMarkedPrivate(element)) {return true;}
   const fieldMeta = fieldsMeta.find(f => f.name === name && f.formIndex === formIndex);
   return !!fieldMeta?.isPrivate;
 }

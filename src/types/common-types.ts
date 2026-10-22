@@ -64,6 +64,13 @@ export interface InitAnalyzeV2Data {
   filterMap?: number[];
   sectionTranslations?: Record<string, string>;
   formId?: string;
+  /** Per sent field, in the order sent: the backend's final privacy verdict (guardrails applied). */
+  sensitiveFlags?: boolean[];
+  /**
+   * Computed by the widget from sensitiveFlags (controller/init-analyze.ts): fields with
+   * options that may be filled although they get no badge. Not sent by the backend.
+   */
+  fillableChoiceNames?: string[];
 }
 
 // ---------------------------------------------------------------------------

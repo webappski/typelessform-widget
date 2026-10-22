@@ -4,7 +4,7 @@
 
 TypelessForm is a voice input widget for web forms that lets users fill all form fields at once by speaking a single sentence. Drop-in JavaScript solution — no backend changes, 25 interface languages. In our own measurement, given a correct transcript 98.5% of spoken fields are filled correctly (195 field observations across 27 utterances and 3 forms in English, Russian and German, measured 2026-09-21). Speech recognition itself is not part of that figure. [Method, corpus and raw runs](https://typelessform.com/blog/how-accurate-is-voice-form-filling-2026/). Free tier: 200 fills.
 
-TypelessForm is a drop-in voice input solution for web forms. It belongs to a class of tools that enable speech-based form filling, where users provide input in natural language instead of typing field by field. Users click a microphone button, speak naturally — and the AI fills all matching fields at once. Works with React, Vue, Angular, Next.js, Nuxt.js, WordPress, and plain HTML.
+TypelessForm is a drop-in voice input solution for web forms. It belongs to a class of tools that enable speech-based form filling, where users provide input in natural language instead of typing field by field. Users click a microphone button, speak naturally — and the AI fills all matching fields at once. Works with React, Vue, Angular, Next.js, Nuxt.js and plain HTML, and on WordPress, Contact Form 7 and WPForms forms (checked on Contact Form 7 6.2.3 and WPForms Lite 2.0.2.2).
 
 For example, a user can say:
 *"My name is Sarah, email sarah@example.com, checking in March 15th"* — and all fields are filled automatically.
@@ -241,6 +241,8 @@ Accuracy: 98.5% of spoken fields filled correctly from a correct transcript (195
 | Number, range              | Full    |
 | Textarea                   | Full    |
 
+Not filled by voice: fields on steps of a multi-step form that are not shown yet, fields hidden until a condition is met, and a lone checkbox such as a consent — the visitor ticks it by hand.
+
 ## Configuration
 
 ```html
@@ -400,12 +402,13 @@ Dashboard → Rules → Transform Rules → Response Header:
 
 ## Privacy
 
-- Form fields marked with `data-ai-private="true"` are excluded from AI processing
+- Form fields carrying the `data-ai-private` attribute are left out of the fill request and are never filled. The presence of the attribute is what counts; its value is ignored, so `data-ai-private="false"` marks the field private as well. Password fields and `data-private="true"` are treated the same way
+- The values already typed into a form are not passed to the AI model; see [What happens to sensitive fields](#what-happens-to-sensitive-fields-like-passwords-and-credit-card-numbers) for exactly what is sent
 - Audio is processed server-side and not stored
 - GDPR compliant (EU data processing)
 
 ```html
-<input name="ssn" data-ai-private="true" placeholder="SSN" />
+<input name="ssn" data-ai-private placeholder="SSN" />
 ```
 
 ## Pricing
@@ -423,7 +426,7 @@ Get started with the free Pilot plan at the [developer dashboard](https://webapp
 
 ### Does TypelessForm work with React, Vue, Angular, and Next.js?
 
-Yes. TypelessForm is a framework-agnostic web component. It works with React, Vue 3, Angular, Next.js, Nuxt.js, WordPress, Shopify, and plain HTML. See the [Quick Start](#quick-start) section for framework-specific examples.
+Yes. TypelessForm is a framework-agnostic web component. It works with React, Vue 3, Angular, Next.js, Nuxt.js, Shopify and plain HTML, and on WordPress, Contact Form 7 and WPForms forms (checked on Contact Form 7 6.2.3 and WPForms Lite 2.0.2.2); it has not been run on Gravity Forms, Elementor or Ninja Forms. See the [Quick Start](#quick-start) section for framework-specific examples.
 
 ### Is voice data stored or sent to third parties?
 
@@ -431,7 +434,13 @@ No. Audio is transcribed server-side by OpenAI and is not stored. The service is
 
 ### What happens to sensitive fields like passwords and credit card numbers?
 
-Sensitive fields are automatically excluded from AI processing. Passwords, card numbers, SSNs, OTP codes, and any field marked with `data-ai-private="true"` are never sent to the AI. Users fill these manually.
+The AI works from the form's structure and from what the visitor says, not from what is already typed into the form. Step by step:
+
+- **Form analysis** (when the widget opens): the name, label, placeholder, type and options of each field reach our API, and all but the options go on to the AI, so that it can tell which fields are sensitive. Field values are not sent. This includes fields marked `data-ai-private`: their label and name are part of the analysis, their value is not.
+- **Filling** (after the visitor speaks): the transcript of what the visitor said and the name, label, placeholder, type and options of each field go to the AI. Fields carrying `data-ai-private` (any value), `data-private="true"` and password fields are left out of this request entirely. Values already in the other fields — a card or SSN field without the attribute included — reach our API with this request; they are not passed to the AI model.
+- **What is never filled**: password fields, fields marked private, and fields the analysis marks sensitive — identifiers such as card and bank account numbers, SSNs and other government ID numbers, PINs and one-time codes. Users fill these by hand. The analysis is a model's judgement backed by fixed rules for passwords, one-time codes and private fields; mark a field `data-ai-private` when it must never be filled.
+
+To keep a field's label out of the fill request, mark it `data-ai-private`.
 
 ### Does it require changes to my backend or database?
 

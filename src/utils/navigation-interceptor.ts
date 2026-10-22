@@ -10,7 +10,14 @@
  * our old element references become stale. We need to re-scan and re-apply.
  */
 
-type NavigationCallback = () => void;
+/**
+ * How the URL changed, in the words of the Navigation API (NavigateEvent.navigationType):
+ * 'push' — a new entry (history.pushState), 'replace' — the current entry rewritten
+ * (history.replaceState), 'traverse' — back or forward (popstate).
+ */
+export type NavigationKind = 'push' | 'replace' | 'traverse';
+
+type NavigationCallback = (kind: NavigationKind) => void;
 
 let isSetup = false;
 let originalPushState: typeof history.pushState;
@@ -34,20 +41,20 @@ export function setupNavigationInterceptor(onNavigate: NavigationCallback): () =
   // Intercept pushState (React Router programmatic navigation)
   history.pushState = function(...args) {
     const result = originalPushState.apply(this, args);
-    onNavigate();
+    onNavigate('push');
     return result;
   };
 
   // Intercept replaceState (route replacement)
   history.replaceState = function(...args) {
     const result = originalReplaceState.apply(this, args);
-    onNavigate();
+    onNavigate('replace');
     return result;
   };
 
   // Listen to popstate (browser back/forward buttons)
   popstateListener = () => {
-    onNavigate();
+    onNavigate('traverse');
   };
   window.addEventListener('popstate', popstateListener);
 

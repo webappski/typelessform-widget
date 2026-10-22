@@ -36,5 +36,6 @@ export function getDisplayValueForField(fieldValue: unknown): string {
 
     return mv.formats.display || mv.formats.iso || mv.originalText || String(fieldValue);
   }
+  if (Array.isArray(fieldValue)) {return fieldValue.join(', ');}
   return String(fieldValue);
 }

@@ -1,5 +1,5 @@
 // Lifecycle orchestrator - main entry point for lifecycle callbacks
-// Sub-modules: lifecycle-helpers.ts, lifecycle-observers.ts, lifecycle-setup.ts
+// Sub-modules: lifecycle-helpers.ts, lifecycle-observers.ts, lifecycle-setup.ts, lifecycle-navigation.ts
 
 import { FormValueApplier } from '../core/services/form-value-applier/index';
 import { buildFieldElementsMap } from '../form/postprocess.ts';
@@ -16,10 +16,10 @@ import {
   setupEventHandlers,
   setupCheckAndReapply,
   setupProactiveValueCheck,
-  setupNavigationHandler,
   setupGlobalFocusHandler,
   setupWidgetVisibility,
 } from './lifecycle-setup.ts';
+import { setupNavigationHandler } from './lifecycle-navigation.ts';
 
 // ── Leak detector for Zero-Delta guard ──
 function scheduleLeakDetector(): void {
