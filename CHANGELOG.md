@@ -7,6 +7,16 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.13] - 2026-10-25
+
+The code is the same as in 1.0.12; this release replaces the package page (README) and the version number. A README reaches the npm page only with a published version, so 1.0.12 kept lines the site had already retired.
+
+### Changed
+- README: the package page no longer carries the retired claims - the "One-Shot Voice Form Filling Widget" title, "Setup takes under 5 minutes" / "~5 minutes", "25+ languages" (now "25 interface languages", speech recognition not limited to them) and the demo link to the payment page (now typelessform.com/#demo). Shopify is listed among the platforms the widget has not been run on.
+- README: the language list in the FAQ names the 25 languages the interface has translation files for (`src/translations/index.ts`), not the longer `CONFIG.SUPPORTED_LANGS`, six of whose languages fall back to English.
+- README: Quick Start (Vanilla HTML) gives the one script tag that needs no build step; the `import` form stays for bundlers. Supported Fields lists select, radio groups and checkbox groups, which 1.0.12 fills.
+- `tests/readme-claims.test.mjs` pins these lines (the language list is read from the loader, not copied into the test), so a later README edit cannot bring them back.
+
 ## [1.0.12] - 2026-10-22
 
 ### Changed

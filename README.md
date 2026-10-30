@@ -1,6 +1,6 @@
 # TypelessForm — Voice Input Widget for HTML Forms
 
-> **One-Shot Voice Form Filling Widget** — fill all fields at once by speaking a single sentence.
+> **Voice form filling widget for HTML forms** — the visitor speaks one sentence and every field fills.
 
 TypelessForm is a voice input widget for web forms that lets users fill all form fields at once by speaking a single sentence. Drop-in JavaScript solution — no backend changes, 25 interface languages. In our own measurement, given a correct transcript 98.5% of spoken fields are filled correctly (195 field observations across 27 utterances and 3 forms in English, Russian and German, measured 2026-09-21). Speech recognition itself is not part of that figure. [Method, corpus and raw runs](https://typelessform.com/blog/how-accurate-is-voice-form-filling-2026/). Free tier: 200 fills.
 
@@ -9,9 +9,9 @@ TypelessForm is a drop-in voice input solution for web forms. It belongs to a cl
 For example, a user can say:
 *"My name is Sarah, email sarah@example.com, checking in March 15th"* — and all fields are filled automatically.
 
-No form redesign. No backend changes. Setup takes under 5 minutes.
+No form redesign. No backend changes.
 
-**[Watch Demo (YouTube)](https://www.youtube.com/watch?v=MquHSLjcc-s)** | **[Try Live Demo](https://webappski.com/en/products/typeless-form)** | **[Get API Key](https://webappski.com/en/portal)**
+**[Watch Demo (YouTube)](https://www.youtube.com/watch?v=MquHSLjcc-s)** | **[Try Live Demo](https://typelessform.com/#demo)** | **[Get API Key](https://webappski.com/en/portal)**
 
 ## Quick Start
 
@@ -20,6 +20,16 @@ npm install typelessform-widget
 ```
 
 ### Vanilla HTML
+
+One script tag, no build step:
+
+```html
+<script src="https://ai-form-copilot-eu.web.app/widget-build/typelessform.js"></script>
+
+<typeless-form api-key="YOUR_API_KEY"></typeless-form>
+```
+
+With a bundler (Vite, webpack), install the package and import it:
 
 ```html
 <script type="module">
@@ -217,9 +227,9 @@ Accuracy: 98.5% of spoken fields filled correctly from a correct transcript (195
 | **Fills multiple fields at once** | ✅ One sentence → all fields | ❌ Raw text only | ✅ One field at a time | ✅ Saved profiles only |
 | **Natural language parsing** | ✅ Built-in (AI) | ❌ You implement it | ❌ No | ❌ No |
 | **No backend changes** | ✅ Zero changes | ✅ Zero changes | ❌ New platform required | ✅ Zero changes |
-| **25+ languages** | ✅ Yes | ⚠️ Browser-dependent | ✅ Depends on plan | ❌ No |
+| **25 interface languages (speech not limited to them)** | ✅ Yes | ⚠️ Browser-dependent | ✅ Depends on plan | ❌ No |
 | **Mobile-friendly** | ✅ Optimised | ⚠️ Inconsistent | ✅ Yes | ✅ Yes |
-| **Setup time** | ~5 minutes | Days (custom build) | Hours (redesign) | None (built-in) |
+| **Setup time** | One script tag | Days (custom build) | Hours (redesign) | None (built-in) |
 
 **Bottom line:** Web Speech API gives you raw transcription — you still need to parse it, extract structured values, and map each one to the right field. TypelessForm handles all of that out of the box.
 
@@ -240,6 +250,9 @@ Accuracy: 98.5% of spoken fields filled correctly from a correct transcript (195
 | Date, time, datetime-local | Full    |
 | Number, range              | Full    |
 | Textarea                   | Full    |
+| Select (dropdown)          | Full    |
+| Radio groups               | Full    |
+| Checkbox groups            | Full    |
 
 Not filled by voice: fields on steps of a multi-step form that are not shown yet, fields hidden until a condition is met, and a lone checkbox such as a consent — the visitor ticks it by hand.
 
@@ -426,7 +439,7 @@ Get started with the free Pilot plan at the [developer dashboard](https://webapp
 
 ### Does TypelessForm work with React, Vue, Angular, and Next.js?
 
-Yes. TypelessForm is a framework-agnostic web component. It works with React, Vue 3, Angular, Next.js, Nuxt.js, Shopify and plain HTML, and on WordPress, Contact Form 7 and WPForms forms (checked on Contact Form 7 6.2.3 and WPForms Lite 2.0.2.2); it has not been run on Gravity Forms, Elementor or Ninja Forms. See the [Quick Start](#quick-start) section for framework-specific examples.
+Yes. TypelessForm is a framework-agnostic web component. It works with React, Vue 3, Angular, Next.js, Nuxt.js and plain HTML, and on WordPress, Contact Form 7 and WPForms forms (checked on Contact Form 7 6.2.3 and WPForms Lite 2.0.2.2); it has not been run on Shopify, Gravity Forms, Elementor or Ninja Forms. See the [Quick Start](#quick-start) section for framework-specific examples.
 
 ### Is voice data stored or sent to third parties?
 
@@ -452,7 +465,7 @@ We measure it on our own corpus rather than quote a vendor benchmark. Given a co
 
 ### What languages are supported?
 
-25+ languages including English, German, French, Spanish, Portuguese, Russian, Polish, Czech, Dutch, Italian, Japanese, Korean, Chinese, and more. Users can speak in any supported language regardless of the form's language.
+25 interface languages: English, Russian, Spanish, French, German, Polish, Italian, Portuguese, Chinese, Japanese, Dutch, Swedish, Danish, Norwegian, Finnish, Greek, Czech, Hungarian, Romanian, Bulgarian, Slovak, Croatian, Serbian, Ukrainian and Korean. Speech recognition is not limited to them: the speech model identifies the spoken language, whatever the form's language.
 
 ### How much does it cost?
 
