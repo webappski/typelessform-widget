@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Vertel ons over deze onderwerpen",
 "modal.subtitle":
-  "We begrijpen elke taal, vullen alles in en vertalen indien nodig",
+  "Spreek op een natuurlijke manier – onze AI-assistent vult het formulier voor u in",
 
 "loader.initial": "Formulier voorbereiden...",
 
@@ -65,7 +65,7 @@ export const translations = {
 "error.network_title": "Verbindingsprobleem",
 "error.showDetails": "Technische details weergeven",
 
-"floatingButton.fillByVoice": "Vul in met spraak",
+"floatingButton.fillByVoice": "Vul in met spraak · AI",
 
 "form.progress.filled": "{count} ingevuld",
 "form.progress.scrollToSelect": "Scroll om te selecteren",
@@ -77,7 +77,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Uw Gegevensprivacy",
 "consent.subtitle":
-  "Lees de informatie over uw gegevensbescherming zorgvuldig door",
+  "Lees de informatie over uw gegevensbescherming zorgvuldig door. U spreekt met een AI-assistent, niet met een persoon.",
 "consent.warning_title": "Belangrijk: Deel Geen Gevoelige Gegevens",
 "consent.warning":
   "Vermeld geen wachtwoorden, betalingsgegevens, overheidsidentificatienummers of medische informatie. Deze gegevens zijn niet bedoeld voor verwerking door de spraakfunctie.",

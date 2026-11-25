@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Berätta om dessa ämnen",
 "modal.subtitle":
-  "Vi förstår alla språk, fyller i allt och översätter vid behov",
+  "Tala naturligt – vår AI-assistent fyller i formuläret åt dig",
 
 "loader.initial": "Förbereder formulär...",
 
@@ -64,7 +64,7 @@ export const translations = {
 "error.network_title": "Anslutningsproblem",
 "error.showDetails": "Visa tekniska detaljer",
 
-"floatingButton.fillByVoice": "Fyll med röst",
+"floatingButton.fillByVoice": "Fyll med röst · AI",
 
 "form.progress.filled": "{count} ifylld",
 "form.progress.scrollToSelect": "Scrolla för att välja",
@@ -76,7 +76,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Din Datasekretess",
 "consent.subtitle":
-  "Läs noggrant informationen om skyddet av dina uppgifter",
+  "Läs noggrant informationen om skyddet av dina uppgifter. Du kommer att prata med en AI-assistent, inte med en person.",
 "consent.warning_title": "Viktigt: Dela Inte Känsliga Uppgifter",
 "consent.warning":
   "Vänligen nämn inte lösenord, betalningsuppgifter, myndighetsidentifierare eller medicinsk information. Dessa uppgifter är inte avsedda för behandling av röstfunktionen.",

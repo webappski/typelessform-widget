@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Fortell oss om disse emnene",
 "modal.subtitle":
-  "Vi forstår alle språk, fyller ut alt og oversetter om nødvendig",
+  "Snakk naturlig – vår KI-assistent fyller ut skjemaet for deg",
 
 "loader.initial": "Forbereder skjema...",
 
@@ -65,7 +65,7 @@ export const translations = {
 "error.network_title": "Tilkoblingsproblem",
 "error.showDetails": "Vis tekniske detaljer",
 
-"floatingButton.fillByVoice": "Fyll ut med stemme",
+"floatingButton.fillByVoice": "Fyll ut med stemme · KI",
 
 "form.progress.filled": "{count} utfylt",
 "form.progress.scrollToSelect": "Rull for å velge",
@@ -77,7 +77,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Din Datapersonvern",
 "consent.subtitle":
-  "Vennligst les informasjonen om databeskyttelsen din nøye",
+  "Vennligst les informasjonen om databeskyttelsen din nøye. Du snakker med en KI-assistent, ikke et menneske.",
 "consent.warning_title": "Viktig: Ikke Del Sensitive Data",
 "consent.warning":
   "Vennligst ikke nevn passord, betalingsdetaljer, myndighetidentifikatorer eller medisinsk informasjon. Disse dataene er ikke ment for behandling av stemmefunksjonen.",

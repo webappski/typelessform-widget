@@ -1,7 +1,7 @@
 // Lifecycle observer setup - extracted from lifecycle.ts
 // MutationObserver, IntersectionObserver, and obstruction observers
 
-import { collectObstructions, findObstructionNodes } from '../lib/guards.ts';
+import { calculateInsets, collectObstructions, findObstructionNodes } from '../lib/guards.ts';
 import type { TypelessFormHost } from '../types/widget-host.js';
 import {
   getFormTopologySignature,
@@ -121,14 +121,42 @@ export function setupObstructionObservers(component: TypelessFormHost): void {
   component.obstructionNodesUpdateInterval = setInterval(updateResizeObserver, 2000);
 }
 
-function setupObstructionMutationObserver(component: TypelessFormHost): void {
-  component.obstructionsObserver = new MutationObserver(component.throttle(() => {
-    const newInsets = collectObstructions();
-    if (JSON.stringify(newInsets) !== JSON.stringify(component.safeInsets)) {
-      component.safeInsets = newInsets;
-      component.findSafePosition();
-      component.requestUpdate();
+// One recalculation for the mutation observer, the resize observer and the 2 s poll: the same
+// obstacle set and the same comparison, or their insets drift apart.
+function applyObstructionInsets(component: TypelessFormHost, insets: { right: number; left: number; bottom: number }): void {
+  if (JSON.stringify(insets) !== JSON.stringify(component.safeInsets)) {
+    component.safeInsets = insets;
+    component.findSafePosition();
+    component.requestUpdate();
+  }
+}
+
+// The host's `throttle` runs only the first call of a window and drops the rest: a bar that changes
+// twice inside 200 ms (a banner that mounts, then sizes itself) left the button at the first size.
+// This one runs the first call at once and the last call of the window at its end.
+function throttleWithTrailing(func: () => void, limit: number): () => void {
+  let waiting = false;
+  let pending = false;
+  const endOfWindow = () => {
+    if (pending) {
+      pending = false;
+      func();
+      setTimeout(endOfWindow, limit);
+    } else {
+      waiting = false;
     }
+  };
+  return () => {
+    if (waiting) { pending = true; return; }
+    waiting = true;
+    func();
+    setTimeout(endOfWindow, limit);
+  };
+}
+
+function setupObstructionMutationObserver(component: TypelessFormHost): void {
+  component.obstructionsObserver = new MutationObserver(throttleWithTrailing(() => {
+    applyObstructionInsets(component, collectObstructions());
   }, 200));
 
   component.obstructionsObserver.observe(document.body, {
@@ -140,9 +168,13 @@ function setupObstructionMutationObserver(component: TypelessFormHost): void {
 }
 
 function refreshObstructionResizeObserver(component: TypelessFormHost): void {
+  const obstructionNodes = findObstructionNodes();
+  // Every tick of the poll recalculates, from the set it has just read: a bar that fades out, hides or
+  // slides in gives no mutation and no size change, and the poll is the only thing that sees it.
+  applyObstructionInsets(component, calculateInsets(obstructionNodes));
+
   if (typeof ResizeObserver === 'undefined') { return; }
 
-  const obstructionNodes = findObstructionNodes();
   const nodesChanged = obstructionNodes.size !== component.trackedObstructionNodes.size ||
     ![...obstructionNodes].every(node => component.trackedObstructionNodes.has(node));
 
@@ -153,12 +185,7 @@ function refreshObstructionResizeObserver(component: TypelessFormHost): void {
   }
 
   component.obstructionResizeObserver = new ResizeObserver(component.throttle(() => {
-    const newInsets = collectObstructions();
-    if (JSON.stringify(newInsets) !== JSON.stringify(component.safeInsets)) {
-      component.safeInsets = newInsets;
-      component.findSafePosition();
-      component.requestUpdate();
-    }
+    applyObstructionInsets(component, collectObstructions());
   }, 200));
 
   obstructionNodes.forEach(node => {

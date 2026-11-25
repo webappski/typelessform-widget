@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Povedzte nám o týchto témach",
 "modal.subtitle":
-  "Rozumieme akémukoľvek jazyku, vyplníme všetko a preložíme, ak je to potrebné",
+  "Hovorte prirodzene — náš AI asistent vyplní formulár za vás",
 
 "button.startSpeaking": "Začnite hovoriť",
 "button.stopSpeaking": "Zastaviť nahrávanie",
@@ -34,7 +34,7 @@ export const translations = {
 "error.network_title": "Problém s pripojením",
 "error.showDetails": "Zobraziť technické podrobnosti",
 
-"floatingButton.fillByVoice": "Vyplniť hlasom",
+"floatingButton.fillByVoice": "Vyplniť hlasom · AI",
 
 "form.progress.filled": "{count} vyplnené",
 "form.progress.scrollToSelect": "Posúvajte pre výber",
@@ -78,7 +78,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Vaše Súkromie Údajov",
 "consent.subtitle":
-  "Prosím, pozorne si prečítajte informácie o ochrane vašich údajov",
+  "Prosím, pozorne si prečítajte informácie o ochrane vašich údajov. Budete hovoriť s AI asistentom, nie s človekom.",
 "consent.warning_title": "Dôležité: Nezdieľajte Citlivé Údaje",
 "consent.warning":
   "Prosím neuvádzajte heslá, platobné údaje, vládne identifikátory alebo zdravotné informácie. Tieto údaje nie sú určené na spracovanie hlasovou funkciou.",

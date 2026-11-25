@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Reci nam o ovim temama",
 "modal.subtitle":
-  "Razumemo sve jezike, popunimo sve i prevedemo po potrebi",
+  "Govorite prirodno — naš VI asistent popunjava obrazac umesto vas",
 
 "button.startSpeaking": "Počni da govoriš",
 "button.stopSpeaking": "Zaustavi snimanje",
@@ -33,7 +33,7 @@ export const translations = {
 "error.network_title": "Проблем са повезивањем",
 "error.showDetails": "Prikaži tehničke detalje",
 
-"floatingButton.fillByVoice": "Popuni glasom",
+"floatingButton.fillByVoice": "Popuni glasom · AI",
 
 "form.progress.filled": "{count} popunjeno",
 "form.progress.scrollToSelect": "Skroluj za odabir",
@@ -77,7 +77,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Ваша Приватност Података",
 "consent.subtitle":
-  "Молимо пажљиво прочитајте информације о заштити ваших података",
+  "Молимо пажљиво прочитајте информације о заштити ваших података. Разговараћете са асистентом вештачке интелигенције (AI), а не са човеком.",
 "consent.warning_title": "Важно: Не Делите Осетљиве Податке",
 "consent.warning":
   "Молимо не помињите лозинке, детаље плаћања, државне идентификаторе или медицинске информације. Ти подаци нису намењени обради гласовном функцијом.",

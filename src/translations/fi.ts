@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Kerro meille näistä aiheista",
 "modal.subtitle":
-  "Ymmärrämme mitä tahansa kieltä, täytämme kaiken ja käännämme tarvittaessa",
+  "Puhu luontevasti – tekoälyavustajamme täyttää lomakkeen puolestasi",
 
 "loader.initial": "Valmistellaan lomaketta...",
 
@@ -64,7 +64,7 @@ export const translations = {
 "error.network_title": "Yhteysongelma",
 "error.showDetails": "Näytä tekniset tiedot",
 
-"floatingButton.fillByVoice": "Täytä äänellä",
+"floatingButton.fillByVoice": "Täytä äänellä · tekoäly",
 
 "form.progress.filled": "{count} täytetty",
 "form.progress.scrollToSelect": "Vieritä valitaksesi",
@@ -75,7 +75,7 @@ export const translations = {
 "button.close": "Sulje",
 // Consent modal
 "consent.title": "Tietosi Yksityisyys",
-"consent.subtitle": "Lue tietojesi suojaa koskevat tiedot huolellisesti",
+"consent.subtitle": "Lue tietojesi suojaa koskevat tiedot huolellisesti. Puhut tekoälyavustajan kanssa, et ihmisen kanssa.",
 "consent.warning_title": "Tärkeää: Älä Jaa Arkaluonteisia Tietoja",
 "consent.warning":
   "Älä mainitse salasanoja, maksudetaileja, viranomaistunnuksia tai lääketieteellisiä tietoja. Näitä tietoja ei ole tarkoitettu äänitoiminnon käsiteltäväksi.",

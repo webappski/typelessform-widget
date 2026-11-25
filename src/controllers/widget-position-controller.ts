@@ -67,6 +67,9 @@ export class WidgetPositionController implements ReactiveController {
   // ── Safe position calculation ───────────────────────────────────────
 
   findSafePosition(): void {
+    // The owner turned the automatic position off: observers and navigation call this without the flag.
+    if (this.#host.autoPositionDisabled) { return; }
+
     const insets = this.#host.safeInsets || { right: 0, left: 0, bottom: 0 };
     const BASE_OFFSET = 16;
     const WIDGET_HEIGHT = 50;

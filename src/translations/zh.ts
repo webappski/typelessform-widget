@@ -1,7 +1,7 @@
 // ZH translations
 export const translations = {
 "modal.title": "告诉我们这些主题",
-"modal.subtitle": "我们可以理解任何语言，自动填写所有内容，并在需要时翻译",
+"modal.subtitle": "自然地说话即可——我们的人工智能助手会为您填写表单",
 
 "loader.initial": "正在准备表单...",
 
@@ -63,7 +63,7 @@ export const translations = {
 "error.network_title": "连接问题",
 "error.showDetails": "显示技术细节",
 
-"floatingButton.fillByVoice": "语音填写",
+"floatingButton.fillByVoice": "语音填写 · AI",
 
 "form.progress.filled": "{count} 已填写",
 "form.progress.scrollToSelect": "滚动选择",
@@ -74,7 +74,7 @@ export const translations = {
 "button.close": "关闭",
 // Consent modal
 "consent.title": "您的数据隐私",
-"consent.subtitle": "请仔细阅读有关数据保护的信息",
+"consent.subtitle": "请仔细阅读有关数据保护的信息。您将与人工智能助手对话，而不是与真人对话。",
 "consent.warning_title": "重要提示：请勿分享敏感数据",
 "consent.warning":
   "请勿说出密码、支付详情、政府标识符或医疗信息。这些数据不适用于语音功能处理。",

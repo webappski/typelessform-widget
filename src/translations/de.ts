@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Erzählen Sie uns von diesen Themen",
 "modal.subtitle":
-  "Wir verstehen jede Sprache, füllen alles aus und übersetzen bei Bedarf",
+  "Sprechen Sie ganz natürlich – unser KI-Assistent füllt das Formular für Sie aus",
 
 "button.startSpeaking": "Sprechen beginnen",
 "button.stopSpeaking": "Aufnahme stoppen",
@@ -74,7 +74,7 @@ export const translations = {
 "loader.stage4": "Bereite Vorschläge vor...",
 "loader.stage5": "Fast fertig!",
 
-"floatingButton.fillByVoice": "Per Sprache ausfüllen",
+"floatingButton.fillByVoice": "Per Sprache ausfüllen · KI",
 
 "form.progress.filled": "{count} ausgefüllt",
 "form.progress.scrollToSelect": "Scrollen zur Auswahl",
@@ -86,7 +86,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Ihr Datenschutz",
 "consent.subtitle":
-  "Bitte lesen Sie die Informationen zum Schutz Ihrer Daten sorgfältig",
+  "Bitte lesen Sie die Informationen zum Schutz Ihrer Daten sorgfältig. Sie sprechen mit einem KI-Assistenten, nicht mit einer Person.",
 "consent.warning_title": "Wichtig: Keine sensiblen Daten teilen",
 "consent.warning":
   "Bitte nennen Sie keine Passwörter, Zahlungsdetails, behördliche Kennungen oder medizinische Informationen. Diese Daten sind nicht zur Verarbeitung durch die Sprachfunktion vorgesehen.",

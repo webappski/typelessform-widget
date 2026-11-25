@@ -232,6 +232,27 @@ export const consentStyles = css`
     .modal-footer-modern.consent-footer {
       padding: var(--space-4) var(--space-5) calc(var(--space-4) + env(safe-area-inset-bottom));
     }
+
+    /* A narrow phone (320x568): the header, the checkboxes and the footer of the consent window have
+       fixed heights, only .modal-body shrinks, and .modal-content clips with overflow: hidden. With the
+       sentence "You will be talking to an AI assistant" in the subtitle the body was left 25-69 px
+       high and the footer ran out of the window. Here the whole consent window scrolls, the body takes
+       its natural height and the footer sticks to the bottom, so both buttons are always in the window.
+       Only the consent step: the privacy settings window shares .modal-content--consent but has no
+       .consent-footer, and keeps its own layout. */
+    .modal-content--consent:has(> .consent-footer) {
+      overflow-y: auto;
+    }
+
+    .modal-content--consent:has(> .consent-footer) > .modal-body {
+      flex: 0 0 auto;
+      overflow: visible;
+    }
+
+    .modal-content--consent > .modal-footer-modern.consent-footer {
+      position: sticky;
+      bottom: 0;
+    }
   }
 
   /* Consent Checkboxes */

@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "これらのトピックについて教えてください",
 "modal.subtitle":
-  "どの言語でも理解し、必要に応じてすべてを入力し翻訳します",
+  "自然にお話しください。AIアシスタントがフォームの入力を代行します",
 
 "loader.initial": "フォームを準備しています...",
 
@@ -67,7 +67,7 @@ export const translations = {
 "error.network_title": "接続の問題",
 "error.showDetails": "技術的な詳細を表示",
 
-"floatingButton.fillByVoice": "音声で入力",
+"floatingButton.fillByVoice": "音声で入力 · AI",
 
 "form.progress.filled": "{count} 入力済み",
 "form.progress.scrollToSelect": "スクロールして選択",
@@ -78,7 +78,7 @@ export const translations = {
 "button.close": "閉じる",
 // Consent modal
 "consent.title": "データプライバシー",
-"consent.subtitle": "データ保護に関する情報を注意深くお読みください",
+"consent.subtitle": "データ保護に関する情報を注意深くお読みください。お話しいただく相手は、人ではなくAIアシスタントです。",
 "consent.warning_title": "重要:機密データを共有しないでください",
 "consent.warning":
   "パスワード、支払い詳細、政府発行の識別子、医療情報は述べないでください。このデータは音声機能による処理を意図していません。",

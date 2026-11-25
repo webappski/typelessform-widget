@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Fortæl os om disse emner",
 "modal.subtitle":
-  "Vi forstår ethvert sprog, udfylder alt og oversætter om nødvendigt",
+  "Tal naturligt – vores AI-assistent udfylder formularen for dig",
 
 "loader.initial": "Forbereder formular...",
 
@@ -65,7 +65,7 @@ export const translations = {
 "error.network_title": "Forbindelsesproblem",
 "error.showDetails": "Vis tekniske detaljer",
 
-"floatingButton.fillByVoice": "Udfyld med stemme",
+"floatingButton.fillByVoice": "Udfyld med stemme · AI",
 
 "form.progress.filled": "{count} udfyldt",
 "form.progress.scrollToSelect": "Rul for at vælge",
@@ -77,7 +77,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Din Databeskyttelse",
 "consent.subtitle":
-  "Læs venligst informationen om beskyttelse af dine data omhyggeligt",
+  "Læs venligst informationen om beskyttelse af dine data omhyggeligt. Du vil tale med en AI-assistent, ikke en person.",
 "consent.warning_title": "Vigtigt: Del Ikke Følsomme Data",
 "consent.warning":
   "Nævn venligst ikke adgangskoder, betalingsoplysninger, myndighedsidentifikatorer eller medicinske oplysninger. Disse data er ikke beregnet til behandling af stemmefunktionen.",

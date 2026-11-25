@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Vorbește-ne despre aceste subiecte",
 "modal.subtitle":
-  "Înțelegem orice limbă, completăm totul și traducem dacă este necesar",
+  "Vorbiți firesc — asistentul nostru IA completează formularul în locul dvs.",
 
 "loader.initial": "Pregătesc formularul...",
 
@@ -66,7 +66,7 @@ export const translations = {
 "error.network_title": "Problemă de conexiune",
 "error.showDetails": "Afișează detalii tehnice",
 
-"floatingButton.fillByVoice": "Completați prin voce",
+"floatingButton.fillByVoice": "Completați prin voce · IA",
 
 "form.progress.filled": "{count} completat",
 "form.progress.scrollToSelect": "Derulează pentru a selecta",
@@ -78,7 +78,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Confidențialitatea Datelor Dvs.",
 "consent.subtitle":
-  "Vă rugăm să citiți cu atenție informațiile despre protecția datelor dvs.",
+  "Vă rugăm să citiți cu atenție informațiile despre protecția datelor dvs. Veți vorbi cu un asistent IA, nu cu o persoană.",
 "consent.warning_title": "Important: Nu Partajați Date Sensibile",
 "consent.warning":
   "Vă rugăm să nu menționați parole, detalii de plată, identificatori guvernamentali sau informații medicale. Aceste date nu sunt destinate procesării de către funcția vocală.",

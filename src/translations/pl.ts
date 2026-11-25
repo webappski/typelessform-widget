@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Opowiedz nam o tych tematach",
 "modal.subtitle":
-  "Rozumiemy każdy język, wypełnimy wszystko i przetłumaczymy w razie potrzeby",
+  "Mów naturalnie – nasz asystent AI wypełnia formularz za Ciebie",
 
 "button.startSpeaking": "Rozpocznij mówienie",
 "button.stopSpeaking": "Zatrzymaj nagrywanie",
@@ -66,7 +66,7 @@ export const translations = {
 "loader.stage4": "Przygotowywanie sugestii...",
 "loader.stage5": "Prawie gotowe!",
 
-"floatingButton.fillByVoice": "Wypełnij głosem",
+"floatingButton.fillByVoice": "Wypełnij głosem · AI",
 
 "form.progress.filled": "{count} wypełniono",
 "form.progress.scrollToSelect": "Przewiń, aby wybrać",
@@ -78,7 +78,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Twoja Prywatność Danych",
 "consent.subtitle":
-  "Prosimy o uważne przeczytanie informacji o ochronie Twoich danych",
+  "Prosimy o uważne przeczytanie informacji o ochronie Twoich danych. Będziesz rozmawiać z asystentem AI, a nie z człowiekiem.",
 "consent.warning_title": "Ważne: Nie Udostępniaj Danych Wrażliwych",
 "consent.warning":
   "Proszę nie wymawiać haseł, danych płatności, identyfikatorów rządowych ani informacji medycznych. Te dane nie są przeznaczone do przetwarzania przez funkcję głosową.",
@@ -108,7 +108,7 @@ export const translations = {
 "consent.data6":
   "Adres IP. Rejestrowany przez infrastrukturę Google Cloud/Firebase w celach bezpieczeństwa (do 30 dni), NIE wysyłany do OpenAI.",
 "consent.retention":
-  "Jak długo przechowujemy zapis Twojej zgody. Zapis tej zgody przechowujemy przez {months} miesięcy od Twojej ostatniej zgody, po czym jest automatycznie usuwany. Wycofanie zgody usuwa go wcześniej.",
+  "Jak długo przechowujemy zapis Twojej zgody. Zapis tej zgody przechowujemy przez okres {months} miesięcy od Twojej ostatniej zgody, po czym jest automatycznie usuwany. Wycofanie zgody usuwa go wcześniej.",
 "consent.section2_title":
   "Gdzie i na jakiej podstawie prawnej dane są przekazywane?",
 "consent.recipients":

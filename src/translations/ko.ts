@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "이 주제들에 대해 알려주세요",
 "modal.subtitle":
-  "모든 언어를 이해하며, 필요하다면 자동으로 채우고 번역합니다",
+  "자연스럽게 말씀해 주세요. AI 어시스턴트가 양식을 대신 작성해 드립니다",
 
 "button.startSpeaking": "말하기 시작",
 "button.stopSpeaking": "녹음 중지",
@@ -33,7 +33,7 @@ export const translations = {
 "error.network_title": "연결 문제",
 "error.showDetails": "기술적 세부사항 표시",
 
-"floatingButton.fillByVoice": "음성으로 채우기",
+"floatingButton.fillByVoice": "음성으로 채우기 · AI",
 
 "form.progress.filled": "{count}개 작성됨",
 "form.progress.scrollToSelect": "스크롤하여 선택",
@@ -77,7 +77,7 @@ export const translations = {
 
 // Consent modal
 "consent.title": "귀하의 데이터 프라이버시",
-"consent.subtitle": "귀하의 데이터 보호에 관한 정보를 주의 깊게 읽어주세요",
+"consent.subtitle": "귀하의 데이터 보호에 관한 정보를 주의 깊게 읽어주세요. 사람이 아닌 AI 어시스턴트와 대화하게 됩니다.",
 "consent.warning_title": "중요: 민감한 데이터를 공유하지 마세요",
 "consent.warning":
   "비밀번호, 결제 세부정보, 정부 식별자 또는 의료 정보를 언급하지 마세요. 이러한 데이터는 음성 기능으로 처리되도록 의도되지 않았습니다.",

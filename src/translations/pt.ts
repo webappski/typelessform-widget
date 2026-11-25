@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Conte-nos sobre esses tópicos",
 "modal.subtitle":
-  "Entendemos qualquer idioma, preencha tudo e traduza se necessário",
+  "Fale naturalmente — nosso assistente de IA preenche o formulário para você",
 
 "loader.initial": "Preparando formulário...",
 
@@ -68,7 +68,7 @@ export const translations = {
 "error.network_title": "Problema de conexão",
 "error.showDetails": "Mostrar detalhes técnicos",
 
-"floatingButton.fillByVoice": "Preencher por voz",
+"floatingButton.fillByVoice": "Preencher por voz · IA",
 
 "form.progress.filled": "{count} preenchido",
 "form.progress.scrollToSelect": "Role para selecionar",
@@ -80,7 +80,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Sua Privacidade de Dados",
 "consent.subtitle":
-  "Por favor, leia atentamente as informações sobre a proteção de seus dados",
+  "Por favor, leia atentamente as informações sobre a proteção de seus dados. Você vai falar com um assistente de IA, e não com uma pessoa.",
 "consent.warning_title": "Importante: Não Compartilhe Dados Sensíveis",
 "consent.warning":
   "Por favor, não mencione senhas, detalhes de pagamento, identificadores governamentais ou informações médicas. Estes dados não são destinados ao processamento pelo recurso de voz.",

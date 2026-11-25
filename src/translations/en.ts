@@ -1,7 +1,7 @@
 // EN translations
 export const translations = {
 "modal.title": "Tell us about these topics",
-"modal.subtitle": "Speak naturally in any language",
+"modal.subtitle": "Speak naturally — our AI assistant fills in the form for you",
 "loader.initial": "Preparing form...",
 
 // Dynamic progress stages for initAnalyze loading
@@ -64,7 +64,7 @@ export const translations = {
 "error.network_title": "Connection Problem",
 "error.showDetails": "Show technical details",
 
-"floatingButton.fillByVoice": "Fill by Voice",
+"floatingButton.fillByVoice": "Fill by Voice · AI",
 
 "form.progress.filled": "{count} filled",
 "form.progress.scrollToSelect": "Scroll to select",
@@ -78,7 +78,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Your Data Privacy",
 "consent.subtitle":
-  "Please read the information about your data protection carefully",
+  "Please read the information about your data protection carefully. You will be talking to an AI assistant, not a person.",
 
 // Anti-PII warning (hero banner)
 "consent.warning_title": "Important: Do Not Share Sensitive Data",

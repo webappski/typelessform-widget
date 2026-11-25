@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Расскажите об этих темах",
 "modal.subtitle":
-  "Мы поймём любой язык, всё заполним и, если нужно, переведём",
+  "Говорите свободно — наш ИИ-ассистент заполнит форму за вас",
 "loader.initial": "Подготовка формы...",
 
 // Dynamic progress stages for initAnalyze loading
@@ -75,7 +75,7 @@ export const translations = {
 "error.network_title": "Проблема соединения",
 "error.showDetails": "Показать технические детали",
 
-"floatingButton.fillByVoice": "Заполнить голосом",
+"floatingButton.fillByVoice": "Заполнить голосом · ИИ",
 
 "form.progress.filled": "{count} заполнено",
 "form.progress.scrollToSelect": "Прокрутите для выбора",
@@ -89,7 +89,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Конфиденциальность ваших данных",
 "consent.subtitle":
-  "Пожалуйста, внимательно прочитайте информацию о защите ваших данных",
+  "Пожалуйста, внимательно прочитайте информацию о защите ваших данных. Вы будете говорить с ИИ-ассистентом, а не с человеком.",
 
 // Anti-PII warning (hero banner)
 "consent.warning_title": "Важно: Не сообщайте конфиденциальные данные",
@@ -129,7 +129,7 @@ export const translations = {
 "consent.data6":
   "IP-адрес. Логируется инфраструктурой Google Cloud/Firebase для безопасности (до 30 дней), в OpenAI не передаётся.",
 "consent.retention":
-  "Сколько мы храним запись о вашем согласии. Запись об этом согласии хранится {months} месяцев с момента последнего согласия, после чего удаляется автоматически. Отзыв согласия удаляет её раньше.",
+  "Сколько мы храним запись о вашем согласии. Запись об этом согласии хранится в течение {months} месяцев с момента последнего согласия, после чего удаляется автоматически. Отзыв согласия удаляет её раньше.",
 
 // Section 2: Where and on what basis
 "consent.section2_title": "Куда и на каком основании передаются данные?",

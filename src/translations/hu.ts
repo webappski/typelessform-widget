@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Mondd el nekünk ezeket a témákat",
 "modal.subtitle":
-  "Bármely nyelvet értünk, mindent kitöltünk, és ha kell, fordítunk",
+  "Beszélj természetesen – az MI-asszisztensünk kitölti helyetted az űrlapot",
 
 "loader.initial": "Űrlap előkészítése...",
 
@@ -66,7 +66,7 @@ export const translations = {
 "error.network_title": "Kapcsolati probléma",
 "error.showDetails": "Technikai részletek megjelenítése",
 
-"floatingButton.fillByVoice": "Kitöltés hanggal",
+"floatingButton.fillByVoice": "Kitöltés hanggal · MI",
 
 "form.progress.filled": "{count} kitöltött",
 "form.progress.scrollToSelect": "Görgess a kiválasztáshoz",
@@ -78,7 +78,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Az Ön Adatvédelme",
 "consent.subtitle":
-  "Kérjük, figyelmesen olvassa el az adatvédelmével kapcsolatos információkat",
+  "Kérjük, figyelmesen olvassa el az adatvédelmével kapcsolatos információkat. Egy MI-asszisztenssel fog beszélni, nem emberrel.",
 "consent.warning_title": "Fontos: Ne Osszon Meg Érzékeny Adatokat",
 "consent.warning":
   "Kérjük, ne említsen jelszavakat, fizetési adatokat, kormányzati azonosítókat vagy egészségügyi információkat. Ezeket az adatokat nem szabad a hangfunkció feldolgozására használni.",

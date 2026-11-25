@@ -2,7 +2,7 @@
 export const translations = {
 "modal.title": "Parlez-nous de ces sujets",
 "modal.subtitle":
-  "Nous comprenons toutes les langues, remplissez tout et traduisez si nécessaire",
+  "Parlez naturellement : notre assistant IA remplit le formulaire à votre place",
 
 "button.startSpeaking": "Commencer à parler",
 "button.stopSpeaking": "Arrêter l'enregistrement",
@@ -73,7 +73,7 @@ export const translations = {
 "loader.stage4": "Préparation des suggestions...",
 "loader.stage5": "Presque prêt !",
 
-"floatingButton.fillByVoice": "Remplir par voix",
+"floatingButton.fillByVoice": "Remplir par voix · IA",
 
 "form.progress.filled": "{count} rempli",
 "form.progress.scrollToSelect": "Faites défiler pour sélectionner",
@@ -85,7 +85,7 @@ export const translations = {
 // Consent modal
 "consent.title": "Votre Confidentialité des Données",
 "consent.subtitle":
-  "Veuillez lire attentivement les informations sur la protection de vos données",
+  "Veuillez lire attentivement les informations sur la protection de vos données. Vous allez parler à un assistant IA, et non à une personne.",
 "consent.warning_title": "Important : Ne Partagez Pas de Données Sensibles",
 "consent.warning":
   "Veuillez ne pas mentionner de mots de passe, détails de paiement, identifiants gouvernementaux ou informations médicales. Ces données ne sont pas destinées à être traitées par la fonction vocale.",

@@ -7,6 +7,23 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [1.0.14] - 2026-11-25
+
+The consent record of this version carries `1.0.14` (it is written into every consent receipt). This release also replaces the package page (README), which reaches npm only with a published version, so 1.0.13 still shows lines the site has dropped.
+
+### Changed
+- The visitor is told in their own language that an AI assistant is on the other end: the floating button reads "Fill by Voice · AI" (the local word for AI, or plain "AI"), the consent subtitle adds "You will be talking to an AI assistant, not a person.", and the recording subtitle no longer promises "any language" - it says "Speak naturally - our AI assistant fills in the form for you". Three keys in all 25 translation files.
+- README: the package page no longer says "GDPR compliant (EU data processing)" (no such certificate exists); it points site owners to the Data Processing Agreement (GDPR Art. 28). The FAQ "Is voice data stored or sent to third parties?" no longer answers "No.": the audio goes to OpenAI (USA) for transcription and the transcript goes to OpenAI to fill the form; OpenAI processes them in the USA under Standard Contractual Clauses or an EU adequacy decision; OpenAI lists no retention for transcription requests and keeps the language-model requests for up to 30 days to prevent abuse (longer where the law requires it); TypelessForm does not store the audio or the transcript.
+- README: the accuracy link now reads "Method, corpus and run summary", and the Accuracy section says "the corpus and the run summary" (the raw runs are not published; the summary is).
+- README: the first lines no longer promise that "every field fills" or that the widget fills "all form fields": the visitor speaks one sentence and the fields they name are filled; password fields, fields marked private and sensitive identifiers (card and bank account numbers, SSNs, PINs, one-time codes) are never filled, as the FAQ on sensitive fields says.
+- README: "With a bundler" shows the import in your entry file (`src/main.js`) and the element in the page, instead of an `import` inside `<script type="module">` in HTML, which a bundler does not process.
+- Translations: in Serbian the floating button reads "Popuni glasom · AI" and the consent subtitle says "AI" (the abbreviation "VI" read as the polite "you" or as the Roman 6); the Polish, Russian and Ukrainian consent retention lines read correctly with 24 months.
+- `tests/readme-claims.test.mjs`, `tests/version-sync.test.mjs` pin these lines and a CHANGELOG section for every version.
+
+### Fixed
+- The floating button no longer covers the buttons of a fixed bar at the bottom of the page, such as a cookie banner: while the bar is shown, the button sits above it, and it returns to its place when the bar goes away. `zIndex` in `window.typelessFormConfig` is applied to the floating button; before, the widget overwrote it.
+- The consent window on a narrow phone (up to 480 px wide) keeps its buttons inside the window: with the sentence about the AI assistant in the subtitle the text of the window had almost no room left on a 320 px screen, and in Russian and Greek the footer ran out of the window. Now the whole window scrolls and the "Accept" and "Close" buttons stay at the bottom; the window on wider screens and the privacy settings window are unchanged.
+
 ## [1.0.13] - 2026-10-25
 
 The code is the same as in 1.0.12; this release replaces the package page (README) and the version number. A README reaches the npm page only with a published version, so 1.0.12 kept lines the site had already retired.

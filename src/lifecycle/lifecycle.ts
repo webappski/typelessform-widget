@@ -36,11 +36,14 @@ function scheduleLeakDetector(): void {
 
 // ── Initialize component configuration and position ──
 function initComponentConfig(component: TypelessFormHost): void {
+  // The default layer first: the site's own `zIndex` (checkUserConfiguration) must overwrite it, not the reverse.
+  component.calculateSmartZIndex();
   component.checkUserConfiguration();
+  // Obstacles before the position: a bar that is on the page at load has to lift the button at once.
+  component.safeInsets = collectObstructions();
   if (!component.autoPositionDisabled) {
     component.findSafePosition();
   }
-  component.calculateSmartZIndex();
 }
 
 export async function connectedCallbackImpl(component: TypelessFormHost): Promise<void> {
@@ -67,8 +70,6 @@ export async function connectedCallbackImpl(component: TypelessFormHost): Promis
 
   initComponentConfig(component);
   setupGlobalFocusHandler(component);
-
-  component.safeInsets = collectObstructions();
 
   setupFormsIntersectionObserver(component);
   setupObstructionObservers(component);
